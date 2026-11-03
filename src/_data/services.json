@@ -1,0 +1,50 @@
+[
+  {
+    "slug": "commercial-cleaning",
+    "title": "Commercial Cleaning",
+    "shortText": "Impress clients and boost productivity with a clean workspace.",
+    "icon": "building",
+    "image": "cleaner-wiping-table",
+    "includes": []
+  },
+  {
+    "slug": "move-in-move-out-cleaning",
+    "title": "Move-In / Move-Out Cleaning",
+    "shortText": "Start fresh or leave on a high note.",
+    "icon": "box-seam",
+    "image": "hero-cleaning",
+    "includes": []
+  },
+  {
+    "slug": "post-construction-cleaning",
+    "title": "Post Construction Cleaning",
+    "shortText": "From construction dust to move-in ready. We handle the final clean, so you can focus on the final reveal.",
+    "icon": "cone-striped",
+    "image": "hero-cleaning",
+    "includes": []
+  },
+  {
+    "slug": "floor-care",
+    "title": "Floor Care",
+    "shortText": "Spotless, well-kept floors are the foundation of a beautiful, welcoming space.",
+    "icon": "stars",
+    "image": "cleaner-wiping-table",
+    "includes": []
+  },
+  {
+    "slug": "carpet-cleaning",
+    "title": "Carpet Cleaning",
+    "shortText": "Fresh, deep-cleaned carpets that look and feel better underfoot.",
+    "icon": "wind",
+    "image": "hero-cleaning",
+    "includes": []
+  },
+  {
+    "slug": "specialty-cleaning",
+    "title": "Specialty Cleaning (Medical & Dental)",
+    "shortText": "Detailed cleaning that keeps medical and dental spaces clean, safe and hygienic.",
+    "icon": "heart-pulse",
+    "image": "cleaner-wiping-table",
+    "includes": []
+  }
+]

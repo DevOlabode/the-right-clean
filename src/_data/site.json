@@ -1,0 +1,20 @@
+{
+  "name": "The Right Clean",
+  "tagline": "The Right Clean. Every Time.",
+  "phone": "TODO",
+  "phoneCanText": null,
+  "email": "info@rightclean.ca",
+  "emailConfirmed": false,
+  "serviceArea": "TODO",
+  "hours": "TODO",
+  "owner": "Gbemisola Famade",
+  "yearsExperience": 7,
+  "insured": null,
+  "socials": {
+    "facebook": "https://www.facebook.com/THERIGHTCLEANCANADA",
+    "instagram": "https://www.instagram.com/therightcleancanada"
+  },
+  "web3formsKey": "TODO",
+  "url": "TODO",
+  "preview": true
+}
