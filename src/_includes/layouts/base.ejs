@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+<%- include('/partials/head') %>
+</head>
+<body class="has-mobile-bar">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <%- include('/partials/header') %>
+  <main id="main" tabindex="-1">
+<%- content %>
+  </main>
+  <%- include('/partials/footer') %>
+  <%- include('/partials/mobile-cta-bar') %>
+  <script src="/assets/vendor/bootstrap/bootstrap.bundle.min.js" defer></script>
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

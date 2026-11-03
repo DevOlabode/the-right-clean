@@ -1,0 +1,7 @@
+<% const callHref = helpers.telHref(site.phone); %>
+<div class="mobile-cta-bar" aria-label="Quick contact" role="region">
+  <% if (callHref) { %>
+  <a class="btn btn-outline-primary" href="<%= callHref %>"><i class="bi bi-telephone me-1" aria-hidden="true"></i> Call</a>
+  <% } %>
+  <a class="btn btn-primary" href="/quote/"><i class="bi bi-clipboard-check me-1" aria-hidden="true"></i> Get a Quote</a>
+</div>

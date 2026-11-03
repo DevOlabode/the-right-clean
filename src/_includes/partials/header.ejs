@@ -1,0 +1,30 @@
+<%
+  const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/services/', label: 'Services' },
+    { href: '/about/', label: 'About' },
+    { href: '/quote/', label: 'Contact' },
+  ];
+%>
+<header class="site-header sticky-top">
+  <nav class="navbar navbar-expand-lg" aria-label="Main">
+    <div class="container">
+      <a class="navbar-brand py-0" href="/">
+        <img src="/assets/images/logo-wide.jpg" width="540" height="330" alt="<%= site.name %> home">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav mx-lg-auto">
+          <% navLinks.forEach(link => { const active = page.url === link.href; %>
+          <li class="nav-item">
+            <a class="nav-link<%= active ? ' active' : '' %>" href="<%= link.href %>"<%- active ? ' aria-current="page"' : '' %>><%= link.label %></a>
+          </li>
+          <% }) %>
+        </ul>
+        <a class="btn btn-primary mt-2 mt-lg-0" href="/quote/">Get a Free Quote</a>
+      </div>
+    </div>
+  </nav>
+</header>
