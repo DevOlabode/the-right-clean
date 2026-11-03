@@ -21,19 +21,21 @@
 
       <div class="col-12 col-sm-6 col-lg-3">
         <h2>Contact</h2>
-        <ul>
-          <li><i class="bi bi-telephone me-2" aria-hidden="true"></i>
-            <% if (phoneHref) { %><a href="<%= phoneHref %>"><%= site.phone %></a><% } else { %><%- include('/partials/todo', { label: 'Add phone number' }) %><% } %>
+        <ul class="footer-contact">
+          <li><i class="bi bi-telephone" aria-hidden="true"></i>
+            <div><% if (phoneHref) { %><a href="<%= phoneHref %>"><%= site.phone %></a><% } else { %><%- include('/partials/todo', { label: 'Add phone number' }) %><% } %></div>
           </li>
-          <li><i class="bi bi-envelope me-2" aria-hidden="true"></i>
-            <a href="mailto:<%= site.email %>"><%= site.email %></a>
-            <% if (!site.emailConfirmed) { %><br><%- include('/partials/todo', { label: 'Confirm email works' }) %><% } %>
+          <li><i class="bi bi-envelope" aria-hidden="true"></i>
+            <div>
+              <a href="mailto:<%= site.email %>"><%= site.email %></a>
+              <% if (!site.emailConfirmed) { %><br><%- include('/partials/todo', { label: 'Confirm email works' }) %><% } %>
+            </div>
           </li>
-          <li><i class="bi bi-geo-alt me-2" aria-hidden="true"></i>
-            <% if (helpers.isTodo(site.serviceArea)) { %><%- include('/partials/todo', { label: 'Add service area' }) %><% } else { %><%= site.serviceArea %><% } %>
+          <li><i class="bi bi-geo-alt" aria-hidden="true"></i>
+            <div><% if (helpers.isTodo(site.serviceArea)) { %><%- include('/partials/todo', { label: 'Add service area' }) %><% } else { %><%= site.serviceArea %><% } %></div>
           </li>
-          <li><i class="bi bi-clock me-2" aria-hidden="true"></i>
-            <% if (helpers.isTodo(site.hours)) { %><%- include('/partials/todo', { label: 'Add business hours' }) %><% } else { %><%= site.hours %><% } %>
+          <li><i class="bi bi-clock" aria-hidden="true"></i>
+            <div><% if (helpers.isTodo(site.hours)) { %><%- include('/partials/todo', { label: 'Add business hours' }) %><% } else { %><%= site.hours %><% } %></div>
           </li>
         </ul>
       </div>
