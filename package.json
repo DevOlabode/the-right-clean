@@ -1,0 +1,21 @@
+{
+  "name": "the-right-clean-site",
+  "version": "1.0.0",
+  "description": "The Right Clean website (Eleventy + EJS + Bootstrap)",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "author": "Samuel Olabode",
+  "license": "UNLICENSED",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.7",
+    "@11ty/eleventy-plugin-ejs": "^1.0.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.2"
+  }
+}
