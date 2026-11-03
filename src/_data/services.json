@@ -12,7 +12,7 @@
     "title": "Move-In / Move-Out Cleaning",
     "shortText": "Start fresh or leave on a high note.",
     "icon": "box-seam",
-    "image": "hero-cleaning",
+    "image": "cleaner-wiping-table",
     "includes": []
   },
   {
@@ -20,7 +20,7 @@
     "title": "Post Construction Cleaning",
     "shortText": "From construction dust to move-in ready. We handle the final clean, so you can focus on the final reveal.",
     "icon": "cone-striped",
-    "image": "hero-cleaning",
+    "image": "cleaner-wiping-table",
     "includes": []
   },
   {
@@ -36,7 +36,7 @@
     "title": "Carpet Cleaning",
     "shortText": "Fresh, deep-cleaned carpets that look and feel better underfoot.",
     "icon": "wind",
-    "image": "hero-cleaning",
+    "image": "cleaner-wiping-table",
     "includes": []
   },
   {
