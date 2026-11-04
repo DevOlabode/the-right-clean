@@ -10,20 +10,25 @@ permalink: /quote/
   const heardAbout = ['Google search', 'Facebook', 'Instagram', 'Friend or family', 'Other'];
   const req = '<span class="req" aria-hidden="true">*</span>';
 %>
-<section class="page-header">
+<section class="page-hero pb-5">
   <div class="container">
-    <span class="eyebrow">Contact</span>
-    <h1>Get a Free Quote</h1>
-    <p class="lead mb-0">Tell us about your space and we'll get back to you with a free, no-obligation quote.</p>
+    <div class="row g-4 align-items-end">
+      <div class="col-lg-7">
+        <span class="kicker"><%- include('/partials/star') %>Free quote</span>
+        <h1 class="mb-0">Let's get your space <em>sparkling.</em></h1>
+      </div>
+      <div class="col-lg-5">
+        <p class="lead mb-0">Tell us about your space and we'll get back to you with a free, no-obligation quote.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section section-paper pt-0">
   <div class="container">
-    <div class="row g-4 g-lg-5">
+    <div class="quote-shell">
       <!-- Form -->
-      <div class="col-lg-7">
-        <div class="rc-card p-4 p-md-5">
+      <div class="quote-main">
           <h2 class="h3 mb-1">Request your quote</h2>
           <p class="text-muted small mb-4">Fields marked <span class="req">*</span> are required.</p>
 
@@ -114,29 +119,26 @@ permalink: /quote/
               <div class="col-12">
                 <% if (helpers.isTodo(site.web3formsKey)) { %><p><%- include('/partials/todo', { label: 'Add Web3Forms key to site.json — form will not send yet' }) %></p><% } %>
                 <button type="submit" class="btn btn-primary btn-lg submit-btn">
-                  <span class="btn-label">Send my quote request</span>
+                  <span class="btn-label">Send my quote request</span> <i class="bi bi-arrow-right" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
           </form>
-        </div>
       </div>
 
-      <!-- Contact card -->
-      <div class="col-lg-5">
-        <aside class="rc-card contact-card" aria-labelledby="contact-heading">
-          <h2 id="contact-heading" class="h3">Prefer to talk?</h2>
-          <p class="text-muted">Reach us directly. We're happy to answer questions.</p>
+      <!-- Contact panel -->
+      <aside class="quote-aside on-dark" aria-labelledby="contact-heading">
+          <span class="kicker"><%- include('/partials/star') %>Prefer to talk?</span>
+          <h2 id="contact-heading" class="h3 mb-3">We're happy to <em>help.</em></h2>
+          <p class="mb-0">Reach us directly with any question about your space.</p>
           <ul class="contact-list">
             <li>
-              <span class="icon-badge" aria-hidden="true"><i class="bi bi-telephone"></i></span>
               <div>
                 <span class="contact-label"><%= site.phoneCanText ? 'Call or text' : 'Call' %></span>
                 <% if (telHref) { %><a href="<%= telHref %>"><%= site.phone %></a><% } else { %><%- include('/partials/todo', { label: 'Add phone number' }) %><% } %>
               </div>
             </li>
             <li>
-              <span class="icon-badge" aria-hidden="true"><i class="bi bi-envelope"></i></span>
               <div>
                 <span class="contact-label">Email</span>
                 <a href="mailto:<%= site.email %>"><%= site.email %></a>
@@ -144,14 +146,12 @@ permalink: /quote/
               </div>
             </li>
             <li>
-              <span class="icon-badge" aria-hidden="true"><i class="bi bi-geo-alt"></i></span>
               <div>
                 <span class="contact-label">Service area</span>
                 <% if (helpers.isTodo(site.serviceArea)) { %><%- include('/partials/todo', { label: 'Add service area' }) %><% } else { %><%= site.serviceArea %><% } %>
               </div>
             </li>
             <li>
-              <span class="icon-badge" aria-hidden="true"><i class="bi bi-clock"></i></span>
               <div>
                 <span class="contact-label">Hours</span>
                 <% if (helpers.isTodo(site.hours)) { %><%- include('/partials/todo', { label: 'Add business hours' }) %><% } else { %><%= site.hours %><% } %>
@@ -159,11 +159,10 @@ permalink: /quote/
             </li>
           </ul>
           <div class="d-flex gap-2 mt-2">
-            <a class="btn btn-outline-primary btn-sm" href="<%= site.socials.facebook %>" target="_blank" rel="noopener"><i class="bi bi-facebook me-1" aria-hidden="true"></i>Facebook<span class="visually-hidden"> (opens in new tab)</span></a>
-            <a class="btn btn-outline-primary btn-sm" href="<%= site.socials.instagram %>" target="_blank" rel="noopener"><i class="bi bi-instagram me-1" aria-hidden="true"></i>Instagram<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-outline-light btn-sm" href="<%= site.socials.facebook %>" target="_blank" rel="noopener"><i class="bi bi-facebook me-1" aria-hidden="true"></i>Facebook<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-outline-light btn-sm" href="<%= site.socials.instagram %>" target="_blank" rel="noopener"><i class="bi bi-instagram me-1" aria-hidden="true"></i>Instagram<span class="visually-hidden"> (opens in new tab)</span></a>
           </div>
-        </aside>
-      </div>
+      </aside>
     </div>
   </div>
 </section>
