@@ -456,12 +456,12 @@ a.rc-card:hover { box-shadow: var(--rc-shadow-lg); transform: translateY(-3px); 
   text-decoration: none;
 }
 .service-nav a:hover { border-color: var(--rc-accent-dark); color: var(--rc-accent-dark); }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .service-nav { position: sticky; top: var(--rc-header-h); }
   .service-nav ul { flex-wrap: wrap; justify-content: center; overflow: visible; }
 }
 .service-section + .service-section { border-top: 1px solid rgba(var(--rc-primary-rgb), 0.06); }
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   /* leave room for the sticky header + anchor nav when jumping to a service */
   .service-section { scroll-margin-top: calc(var(--rc-header-h) + 72px); }
 }

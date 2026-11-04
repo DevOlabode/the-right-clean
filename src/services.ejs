@@ -28,17 +28,17 @@ permalink: /services/
 <section class="section service-section<%= flip ? ' section-light' : '' %>" id="<%= service.slug %>" aria-labelledby="<%= service.slug %>-heading">
   <div class="container">
     <div class="row align-items-center g-5">
-      <div class="col-md-6<%= flip ? ' order-md-2' : '' %><%= service.image ? '' : ' d-none d-md-block' %>">
+      <div class="col-lg-6<%= flip ? ' order-lg-2' : '' %><%= service.image ? '' : ' d-none d-lg-block' %>">
         <% if (service.image) { %>
         <div class="media-frame ratio-4x3">
-          <%- include('/partials/picture', { name: service.image, alt: '', width: 1024, height: 1024 }) %>
+          <%- include('/partials/picture', { name: service.image, alt: '', width: 1024, height: 1024, eager: i === 0 }) %>
         </div>
         <% } else { %>
         <div class="media-frame ratio-4x3 icon-panel" aria-hidden="true"><i class="bi bi-<%= service.icon %>"></i></div>
         <% } %>
       </div>
-      <div class="col-md-6">
-        <span class="icon-badge<%= service.image ? '' : ' d-md-none' %>" aria-hidden="true"><i class="bi bi-<%= service.icon %>"></i></span>
+      <div class="col-lg-6">
+        <span class="icon-badge<%= service.image ? '' : ' d-lg-none' %>" aria-hidden="true"><i class="bi bi-<%= service.icon %>"></i></span>
         <h2 id="<%= service.slug %>-heading"><%= service.title %></h2>
         <p><%= service.longText %></p>
         <h3 class="h4 mt-4 mb-3">What's included</h3>
