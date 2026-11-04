@@ -5,10 +5,10 @@ description: "Sorry, we couldn't find that page."
 permalink: /404.html
 eleventyExcludeFromCollections: true
 ---
-<section class="section">
+<section class="section section-paper">
   <div class="container text-center" style="max-width: 36rem;">
-    <span class="icon-badge" aria-hidden="true"><i class="bi bi-stars"></i></span>
-    <h1 class="h2">We couldn't find that page</h1>
+    <%- include('/partials/star', { cls: 'big-star' }) %>
+    <h1 class="mb-3">We couldn't find <em>that page.</em></h1>
     <p class="lead mb-4">This spot is spotless, but empty. The page may have moved, or the link may be out of date.</p>
     <div class="d-flex flex-wrap justify-content-center gap-2">
       <a class="btn btn-primary" href="/">Back to Home</a>
