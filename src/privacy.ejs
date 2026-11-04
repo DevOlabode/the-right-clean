@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.ejs
 title: Privacy Policy
-description: "How The Right Clean collects and uses your information."
+description: "How The Right Clean collects, uses and protects the information you send us when you ask for a quote."
 permalink: /privacy/
 ---
 <section class="page-header">
@@ -10,9 +10,57 @@ permalink: /privacy/
     <p class="lead mb-0">How we handle the information you send us.</p>
   </div>
 </section>
+
 <section class="section">
   <div class="container">
-    <p class="text-muted">Page content coming in Phase 2.</p>
+    <div class="prose">
+      <%# TODO: remove this note once the business has reviewed the policy. %>
+      <p class="template-note mb-4">Template — have the business review before launch.</p>
+      <p class="text-muted">Last updated: November 2026</p>
+
+      <p><%= site.name %> ("we", "us") respects your privacy. This page explains what information we collect through this website, why we collect it, and how you can ask us about it. We follow Canada's <em>Personal Information Protection and Electronic Documents Act</em> (PIPEDA).</p>
+
+      <h2>What we collect</h2>
+      <p>When you ask for a quote or contact us, we collect the information you choose to give us, such as:</p>
+      <ul>
+        <li>Your name</li>
+        <li>Your phone number and email address</li>
+        <li>The address or area of the space to be cleaned</li>
+        <li>Details about your space and the cleaning you need</li>
+        <li>Any photos or other information you send us when we reply</li>
+      </ul>
+      <p>We don't ask for payment details through this website.</p>
+
+      <h2>Why we collect it</h2>
+      <p>We use your information only to:</p>
+      <ul>
+        <li>Reply to your quote request or question</li>
+        <li>Plan and provide the cleaning service you ask for</li>
+        <li>Contact you about your booking</li>
+      </ul>
+      <p>We don't sell or rent your information, and we don't use it for unrelated marketing without your permission.</p>
+
+      <h2>Who sees it</h2>
+      <p>Only <%= site.name %> sees the information you send. Our quote form is delivered by email using a service called <a href="https://web3forms.com/" target="_blank" rel="noopener">Web3Forms<span class="visually-hidden"> (opens in new tab)</span></a>, which passes your form to our inbox. Their servers may be outside Canada, so your information may be handled under the laws of other countries while it is being delivered.</p>
+      <p>We may share information if the law requires it.</p>
+
+      <h2>How long we keep it</h2>
+      <p>We keep your information only for as long as we need it to respond to you, provide our service and keep basic business records. After that, we delete it.</p>
+
+      <h2>How we protect it</h2>
+      <p>We take reasonable steps to keep your information safe, and we limit access to the people who need it to serve you.</p>
+
+      <h2>Your choices</h2>
+      <p>You can ask to see the information we have about you, ask us to correct it, or ask us to delete it. To make a request or ask a question about privacy, email us at <a href="mailto:<%= site.email %>"><%= site.email %></a>.</p>
+      <p>If you're not satisfied with our answer, you can contact the <a href="https://www.priv.gc.ca/" target="_blank" rel="noopener">Office of the Privacy Commissioner of Canada<span class="visually-hidden"> (opens in new tab)</span></a>.</p>
+
+      <h2>Cookies</h2>
+      <p>This website doesn't use cookies to track you.</p>
+
+      <h2>Changes to this policy</h2>
+      <p class="mb-0">We may update this page from time to time. The date at the top shows when it last changed.</p>
+    </div>
   </div>
 </section>
 
+<%- include('/partials/quote-cta') %>
