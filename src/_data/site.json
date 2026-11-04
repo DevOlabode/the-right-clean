@@ -1,10 +1,10 @@
 {
   "name": "The Right Clean",
   "tagline": "The Right Clean. Every Time.",
-  "phone": "TODO",
+  "phone": "403-618-2364",
   "phoneCanText": true,
   "email": "info@rightclean.ca",
-  "emailConfirmed": false,
+  "emailConfirmed": true,
   "serviceArea": "Edmonton and surrounding areas",
   "hours": "Monday to Friday, 8:00 AM to 5:00 PM",
   "owner": "Gbemisola Famade",
