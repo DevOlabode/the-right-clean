@@ -68,21 +68,24 @@ vercel.json
 9. **Keep it simple.** No extra libraries unless a phase file asks for one. Ask Samuel before adding a dependency.
 10. **Commit after each finished task** with a clear message.
 
-## Design system
+## Design system (premium redesign, Nov 2026)
 
-- **Feel:** clean, calm, trustworthy, bright. Lots of white space.
-- **Colours (CSS variables in `:root`):**
-  - `--rc-primary: #0F3D5E` (deep navy-teal: headings, header, footer)
-  - `--rc-accent: #2BB3A3` (fresh aqua-green: icons, decorative shapes, borders, large display text only; it's only 2.6:1 on white, so never use it for body text or as a background behind white text)
-  - `--rc-accent-dark: #167A6E` (buttons with white text, links and small text: 5.2:1 on white, 4.9:1 on the light grey)
-  - `--rc-accent-darker: #13685E` (button hover)
-  - `--rc-light: #F4F8FA` (alternating section background)
-  - `--rc-text: #1F2933` and `--rc-muted: #5B6770`
-  - If the client's logo has set colours, Samuel may swap these. Keep them as variables so it's a one-line change.
-- **Fonts (Google Fonts):** "Plus Jakarta Sans" (600/700) for headings, "Inter" (400/500/600) for body. Use `font-display: swap` and preconnect.
-- **Components:** rounded corners (12px cards, 999px pill buttons), soft shadows, generous padding (sections ~80px desktop / 56px mobile), icons from Bootstrap Icons (allowed dependency).
-- **Header:** logo left, links (Home, Services, About, Contact), "Get a Free Quote" button right. Sticky on scroll. Collapses to a hamburger on mobile.
-- **Mobile sticky bottom bar** (under 768px): two buttons, "Call" (`tel:` link) and "Get a Quote". Hide the "Call" button if the phone number is still a TODO.
+- **Feel:** premium, editorial, calm and trustworthy. Big serif headlines, real photography, generous white space. Avoid "template" tells: no icon-in-tinted-square card grids, no centered heading + 3 cards repeated, no gradient CTA boxes.
+- **Colours (CSS variables in `:root` of `main.css`, taken from the logo):**
+  - `--rc-ink: #0B1B33` (deep navy: headings, dark sections, footer, top bar)
+  - `--rc-blue: #1E4FD8` (royal blue: buttons with white text, links, italic accents; 6.6:1 on white)
+  - `--rc-blue-dark: #1740B3` (hover)
+  - `--rc-sky: #8FB3FF` (small accents on dark backgrounds only)
+  - `--rc-paper: #F6F4EF` (warm off-white section background), `--rc-mist: #E9EFFA` (pale blue tint)
+  - `--rc-text: #1A2233`, `--rc-muted: #56627A`
+- **Fonts (self-hosted woff2 in `src/assets/fonts/`, preloaded):** "Instrument Serif" (regular + italic) for headings and display text; "Manrope" (400–700) for body and UI. Emphasis words in headings use `<em>` (italic, blue).
+- **Motif:** the four-point sparkle from the logo (`partials/star.ejs`) for labels, checklists and decoration.
+- **Components:** pill buttons with arrow icons, 28px image frames, photo service cards with dark gradient, dark split sections, numbered steps/values with serif numerals, `.kicker` labels (sparkle + small caps), scroll reveal (`.reveal`, respects reduced motion, content visible without JS).
+- **Icons:** Bootstrap Icons SVGs inlined at build time with `helpers.icon('name')`. No icon font.
+- **Images:** `partials/picture.ejs` serves WebP + JPG; stock photos have an `-800` version and are used with `sizes`. Stock photos are temporary (see `src/assets/images/CREDITS.md`).
+- **Header:** dark top bar (area, hours, call/text), then logo, links (Home, Services, About, Contact) and "Get a Free Quote" button. Sticky. Collapses to a hamburger with large serif links on mobile.
+- **Mobile sticky bottom bar** (under 768px): "Call" (`tel:` link) and "Get a Quote". Hide "Call" if the phone number is still a TODO.
+- **Phones:** keep row gutters at `g-4` below 992px (`g-4 g-lg-5`); `g-5` causes horizontal scroll.
 
 ## Content inventory (from the current site, Nov 2026)
 

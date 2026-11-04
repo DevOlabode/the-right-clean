@@ -25,9 +25,8 @@ Everything still missing or unconfirmed before launch. Updated at the end of Pha
 
 | # | Item | Where |
 |---|---|---|
+| 10a | **Stock photos (Unsplash) are used throughout** and show other people, not their team. Replace with real photos of the team, uniforms and work as they arrive | Every page. List in `src/assets/images/CREDITS.md` |
 | 10 | Logo is the AI-generated one from the old site. Need the original file (SVG or transparent PNG). Then regenerate `logo-wide.jpg`, favicons in `src/assets/icons/` and `og-image.jpg` | Header, footer, favicons, share image |
-| 11 | Only one cleaning photo exists (AI-generated, `cleaner-wiping-table`). Five services show an icon panel instead of a photo | Home hero, Services page. Set `image` per service in `services.json` when real photos arrive |
-| 12 | Brand colours are teal; the logo is navy/royal blue. Optional swap in `:root` of `main.css` | Whole site |
 | 13 | No reviews yet (no Google reviews). Reviews section stays hidden until `reviews.json` has entries | Home page |
 
 ## At launch (Phase 4)
@@ -39,4 +38,4 @@ Everything still missing or unconfirmed before launch. Updated at the end of Pha
 
 ## Optional improvements
 
-- Lighthouse mobile Performance is 90–94. The main remaining cost is the full Bootstrap CSS (~230 KB raw, ~30 KB compressed). PurgeCSS could trim it, but it's a new build dependency, so only if wanted.
+- Lighthouse mobile after the redesign: Performance 97–100, Accessibility 100, Best Practices 100, SEO 100 with `preview: false`. No further work needed.
