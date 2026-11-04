@@ -5,7 +5,8 @@
     "shortText": "Impress clients and boost productivity with a clean workspace.",
     "longText": "A clean workplace makes a good first impression and helps your team do their best work. We clean offices and commercial spaces on a schedule that suits you, with routine and deep cleaning options, so you can focus on running your business.",
     "icon": "building",
-    "image": "cleaner-wiping-table",
+    "image": "commercial-desk-cleaning",
+    "imageAlt": "Gloved hands cleaning an office desk with a spray bottle and cloth",
     "includes": [
       "Desks, tables and shared surfaces wiped down",
       "Kitchens and break rooms cleaned",
@@ -21,7 +22,8 @@
     "shortText": "Start fresh or leave on a high note.",
     "longText": "Moving is busy enough. Whether you're getting a place ready for new tenants, handing back the keys or settling into a new home, we take care of the cleaning so the space is fresh and ready for whoever walks in next.",
     "icon": "box-seam",
-    "image": null,
+    "image": "move-out-living-room",
+    "imageAlt": "A cleaner mopping the floor of a bright, empty living room",
     "includes": [
       "Inside cabinets and drawers",
       "Appliances wiped inside and out",
@@ -36,7 +38,8 @@
     "shortText": "From construction dust to move-in ready. We handle the final clean, so you can focus on the final reveal.",
     "longText": "Construction and renovation leave dust and debris in every corner. We do the final clean after the trades are done, so your new build or renovated space is ready to move into or show off.",
     "icon": "cone-striped",
-    "image": null,
+    "image": "post-construction-new-building",
+    "imageAlt": "A cleaner working in a bright, newly built space",
     "includes": [
       "Construction dust removed from surfaces, ledges and fixtures",
       "Windows, frames and tracks cleaned",
@@ -52,7 +55,8 @@
     "shortText": "Spotless, well-kept floors are the foundation of a beautiful, welcoming space.",
     "longText": "Floors take the most wear in any space. We keep them clean and cared for so they look good and last longer, whether it's a busy office lobby or a clinic hallway.",
     "icon": "stars",
-    "image": null,
+    "image": "floor-care-scrub",
+    "imageAlt": "Close-up of a gloved hand scrubbing a wet floor",
     "includes": [
       "Sweeping and mopping",
       "Hard floors scrubbed",
@@ -67,7 +71,8 @@
     "shortText": "Fresh, deep-cleaned carpets that look and feel better underfoot.",
     "longText": "Carpets hold onto dirt, dust and stains you can't always see. Our carpet cleaning lifts the build-up and brings back a fresher look and feel, in homes and workplaces.",
     "icon": "wind",
-    "image": null,
+    "image": "carpet-upholstery-vacuum",
+    "imageAlt": "Upholstery being vacuumed with a professional attachment",
     "includes": [
       "Thorough vacuuming",
       "Spot and stain treatment",
@@ -82,7 +87,8 @@
     "shortText": "Detailed cleaning that keeps medical and dental spaces clean, safe and hygienic.",
     "longText": "A higher standard of clean for spaces dedicated to care. Medical and dental offices need careful, detailed cleaning. We clean your clinic with attention to hygiene, so your patients and staff can feel safe and comfortable.",
     "icon": "heart-pulse",
-    "image": null,
+    "image": "specialty-clinic-hallway",
+    "imageAlt": "A cleaner mopping the floor of a clinical hallway",
     "includes": [
       "Exam and treatment rooms cleaned with care",
       "Reception and waiting areas",

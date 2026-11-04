@@ -1,8 +1,10 @@
 <%#
   WebP + JPG image. Required: name (file name without extension), alt.
-  Optional: width/height (aspect ratio hint, default 1200x900), cls, eager (above the fold).
+  Optional: width/height (aspect ratio hint), cls, eager (above the fold),
+  mobile (name of a smaller version served below 768px).
 %>
 <picture>
+  <% if (locals.mobile) { %><source media="(max-width: 767px)" srcset="/assets/images/<%= mobile %>.webp" type="image/webp"><% } %>
   <source srcset="/assets/images/<%= name %>.webp" type="image/webp">
-  <img src="/assets/images/<%= name %>.jpg" alt="<%= alt %>" width="<%= locals.width || 1200 %>" height="<%= locals.height || 900 %>"<% if (locals.cls) { %> class="<%= locals.cls %>"<% } %> <%- locals.eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"' %>>
+  <img src="/assets/images/<%= name %>.jpg" alt="<%= alt %>" width="<%= locals.width || 1400 %>" height="<%= locals.height || 933 %>"<% if (locals.cls) { %> class="<%= locals.cls %>"<% } %> <%- locals.eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"' %>>
 </picture>

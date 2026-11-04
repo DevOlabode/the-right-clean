@@ -1,6 +1,9 @@
-<a class="rc-card service-card" href="/services/#<%= service.slug %>">
-  <span class="icon-badge" aria-hidden="true"><i class="bi bi-<%= service.icon %>"></i></span>
-  <h3 class="h4"><%= service.title %></h3>
-  <p class="text-muted mb-3"><%= service.shortText %></p>
-  <span class="card-more">Learn more <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+<a class="service-card" href="/services/#<%= service.slug %>">
+  <div class="frame-img"><%- include('/partials/picture', { name: service.image, alt: '' }) %></div>
+  <span class="go" aria-hidden="true"><i class="bi bi-arrow-up-right"></i></span>
+  <div class="service-card-body">
+    <span class="service-num"><%= String(index + 1).padStart(2, '0') %></span>
+    <h3><%= service.title.replace(/\s*\(.*\)$/, '') %></h3>
+    <p><%= service.shortText %></p>
+  </div>
 </a>

@@ -3,89 +3,142 @@ layout: layouts/base.ejs
 title: The Right Clean
 description: "Professional cleaning you can trust in Edmonton: commercial, move-in/move-out, post construction, floor care, carpet and medical/dental cleaning. Get a free quote."
 permalink: /
-preloadImage: cleaner-wiping-table
+preloadImage: hero-office-vacuum
+preloadImageMobile: hero-office-vacuum-900
 ---
 <%
-  const trustPoints = [
-    { icon: 'award', text: `${site.yearsExperience}+ years' experience` },
-    { icon: 'people', text: 'Trained, quality-checked team' },
-    { icon: 'clipboard-check', text: 'Free, no-obligation quotes' },
-  ];
-  if (site.insured === true) trustPoints.push({ icon: 'shield-check', text: 'Insured' });
+  const heroFacts = ['Trained, quality-checked team', 'Free, no-obligation quotes'];
+  if (site.insured === true) heroFacts.unshift('Fully insured');
 
   const steps = [
-    { title: 'Tell us about your space', text: 'Fill in a short form with the type of space, its size and what you need cleaned.' },
-    { title: 'Get your quote', text: "We'll get back to you with a clear, free quote that fits your space." },
-    { title: 'Enjoy The Right Clean', text: 'Our team arrives ready to work and leaves your space clean, fresh and cared for.' },
+    { title: 'Tell us about your space', text: 'Send a short request with the type of space, its size and what you need. It takes about two minutes.' },
+    { title: 'Get a clear quote', text: "We'll get back to you with a free quote that fits your space and your schedule. No surprises." },
+    { title: 'Enjoy The Right Clean', text: 'Our team arrives ready to work and leaves your space clean, fresh and cared for. Every time.' },
   ];
+  const specialty = services.find(s => s.slug === 'specialty-cleaning');
 %>
 
 <!-- Hero -->
 <section class="hero">
   <div class="container">
-    <div class="row align-items-center g-4 g-lg-5">
+    <div class="row g-4 g-lg-5 align-items-center">
       <div class="col-lg-6">
-        <span class="eyebrow"><%= site.tagline %></span>
-        <h1 class="mb-3">Professional cleaning you can trust.</h1>
-        <p class="lead mb-4">We do more than clean. We help you create spaces that leave a lasting impression, with cleaning tailored to offices, medical and dental spaces, new builds and move-in/move-out properties.</p>
+        <span class="kicker"><%- include('/partials/star') %>Cleaning in <%= helpers.isTodo(site.serviceArea) ? 'your area' : site.serviceArea.split(' and ')[0] %></span>
+        <h1 class="display mb-4">Professional cleaning you can <em>trust.</em></h1>
+        <p class="lead mb-4 pb-1">Offices, medical and dental spaces, new builds and move-in/move-out properties. Cleaned with care and checked for quality, so you can focus on everything else.</p>
         <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-primary btn-lg" href="/quote/">Get a Free Quote</a>
-          <a class="btn btn-outline-primary btn-lg" href="/services/">Our Services</a>
+          <a class="btn btn-primary btn-lg" href="/quote/">Get a Free Quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-outline-dark btn-lg" href="/services/">Explore services</a>
         </div>
+        <ul class="hero-facts">
+          <% heroFacts.forEach(f => { %><li><%- include('/partials/star') %><%= f %></li><% }) %>
+        </ul>
       </div>
       <div class="col-lg-6">
-        <div class="media-frame ratio-4x3">
-          <%- include('/partials/picture', { name: 'cleaner-wiping-table', alt: 'A cleaner in yellow gloves wiping down a wooden table', width: 1024, height: 1024, eager: true }) %>
+        <div class="hero-media">
+          <div class="frame">
+            <%- include('/partials/picture', { name: 'hero-office-vacuum', mobile: 'hero-office-vacuum-900', alt: 'A cleaner vacuuming a bright, modern glass-walled office', width: 2000, height: 1600, eager: true }) %>
+          </div>
+          <div class="hero-badge" aria-hidden="true"><span><b><%= site.yearsExperience %>+</b>years</span></div>
+          <div class="hero-card">
+            <img src="/assets/images/portrait-placeholder.jpg" width="56" height="56" alt="" loading="lazy">
+            <div>
+              <strong>Owner-led by <%= site.owner %></strong>
+              <span><%= site.yearsExperience %>+ years in the cleaning industry</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Trust strip -->
-<section class="trust-strip" aria-label="Why choose us">
+<!-- Services marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <% for (let g = 0; g < 2; g++) { %>
+    <div class="marquee-group">
+      <% services.forEach(s => { %><span class="marquee-item"><%= s.title.replace(/\s*\(.*\)$/, '') %></span><%- include('/partials/star') %><% }) %>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+<!-- Intro statement + facts -->
+<section class="section" aria-labelledby="intro-heading">
   <div class="container">
-    <ul class="row g-3 list-unstyled mb-0 justify-content-center">
-      <% trustPoints.forEach(point => { %>
-      <li class="col-6 col-md-3 trust-item">
-        <i class="bi bi-<%= point.icon %>" aria-hidden="true"></i><span><%= point.text %></span>
-      </li>
-      <% }) %>
-    </ul>
+    <div class="row g-4 mb-5 pb-lg-4">
+      <div class="col-lg-3">
+        <h2 id="intro-heading" class="kicker"><%- include('/partials/star') %>Who we are</h2>
+      </div>
+      <div class="col-lg-9 reveal">
+        <p class="statement mb-0">We do more than clean. We help you create spaces that leave a <em>lasting impression</em>, with care that's consistent from the first visit to the hundredth.</p>
+      </div>
+    </div>
+    <div class="facts reveal">
+      <div class="fact"><b><%= site.yearsExperience %>+</b><span>Years in the cleaning industry</span></div>
+      <div class="fact"><b><%= services.length %></b><span>Specialised cleaning services</span></div>
+      <% if (!helpers.isTodo(site.hours)) { %><div class="fact"><b>Mon–Fri</b><span><%= site.hours.replace(/^Monday to Friday,\s*/i, '') %></span></div><% } %>
+      <div class="fact"><b>Free</b><span>No-obligation quotes</span></div>
+    </div>
   </div>
 </section>
 
 <!-- Services -->
-<section class="section" aria-labelledby="services-heading">
+<section class="section section-paper" aria-labelledby="services-heading">
   <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">What we do</span>
-      <h2 id="services-heading">Cleaning for every kind of space</h2>
-      <p class="lead mb-0">From busy offices to brand-new builds, we tailor every clean to your space and your schedule.</p>
+    <div class="row align-items-end g-4 section-head">
+      <div class="col-lg-7 reveal">
+        <span class="kicker"><%- include('/partials/star') %>What we do</span>
+        <h2 id="services-heading" class="mb-0">Cleaning for every <em>kind of space</em></h2>
+      </div>
+      <div class="col-lg-5 reveal reveal-delay-1">
+        <p class="lead mb-3">From busy offices to brand-new builds, every clean is tailored to your space and your schedule.</p>
+        <a class="link-arrow" href="/services/">See all services <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+      </div>
     </div>
-    <div class="row g-4">
-      <% services.forEach(service => { %>
-      <div class="col-md-6 col-lg-4">
-        <%- include('/partials/service-card', { service }) %>
+    <div class="row g-3 g-lg-4 service-scroller reveal" role="list">
+      <% services.forEach((service, index) => { %>
+      <div class="col-md-6 col-lg-4" role="listitem">
+        <%- include('/partials/service-card', { service, index }) %>
       </div>
       <% }) %>
     </div>
+    <p class="swipe-hint d-md-none mt-3 mb-0" aria-hidden="true">Swipe to see all <%= services.length %> services <i class="bi bi-arrow-right"></i></p>
   </div>
 </section>
 
-<!-- How it works -->
-<section class="section section-light" aria-labelledby="steps-heading">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">How it works</span>
-      <h2 id="steps-heading">Getting started is easy</h2>
+<!-- Specialty: medical & dental -->
+<section class="split on-dark" aria-labelledby="specialty-heading">
+  <div class="split-body">
+    <div class="reveal">
+      <span class="kicker"><%- include('/partials/star') %>Medical &amp; dental</span>
+      <h2 id="specialty-heading" class="mb-4">A higher standard of clean for spaces <em>dedicated to care.</em></h2>
+      <p class="lead mb-4">Clinics need careful, detailed cleaning. We help you keep a clean, safe and hygienic space for your patients and staff.</p>
+      <ul class="checklist">
+        <% specialty.includes.slice(0, 4).forEach(item => { %><li><%= item %></li><% }) %>
+      </ul>
+      <a class="btn btn-light btn-lg" href="/quote/?service=specialty-cleaning">Get a clinic cleaning quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
     </div>
-    <ol class="row g-4 list-unstyled mb-0">
+  </div>
+  <div class="split-media">
+    <%- include('/partials/picture', { name: 'dental-room-clean', alt: 'A clean, bright dental treatment room' }) %>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section" aria-labelledby="steps-heading">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="kicker"><%- include('/partials/star') %>How it works</span>
+      <h2 id="steps-heading" class="mb-0">Three simple steps to <em>a cleaner space</em></h2>
+    </div>
+    <ol class="row g-4 g-lg-5 list-unstyled mb-0">
       <% steps.forEach((step, i) => { %>
-      <li class="col-md-4">
-        <div class="rc-card text-center">
-          <span class="step-number" aria-hidden="true"><%= i + 1 %></span>
-          <h3 class="h4"><%= step.title %></h3>
+      <li class="col-md-4 reveal<%= i ? ' reveal-delay-' + i : '' %>">
+        <div class="step">
+          <span class="step-num" aria-hidden="true">0<%= i + 1 %></span>
+          <h3><%= step.title %></h3>
           <p class="text-muted mb-0"><%= step.text %></p>
         </div>
       </li>
@@ -94,37 +147,26 @@ preloadImage: cleaner-wiping-table
   </div>
 </section>
 
-<!-- Specialty band -->
-<section class="section bg-primary-brand specialty-band" aria-labelledby="specialty-heading">
+<!-- Owner -->
+<section class="section section-paper" aria-labelledby="owner-heading">
   <div class="container">
-    <div class="row align-items-center g-4">
-      <div class="col-lg-8">
-        <i class="bi bi-heart-pulse band-icon d-block mb-3" aria-hidden="true"></i>
-        <h2 id="specialty-heading">A higher standard of clean for spaces dedicated to care.</h2>
-        <p class="lead mb-0">Medical and dental offices need careful, detailed cleaning. We help you keep a clean, safe and hygienic space for your patients and staff.</p>
-      </div>
-      <div class="col-lg-4 text-lg-end">
-        <a class="btn btn-light btn-lg" href="/quote/?service=specialty-cleaning">Get a clinic cleaning quote</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- About teaser -->
-<section class="section" aria-labelledby="about-heading">
-  <div class="container">
-    <div class="row align-items-center g-4 g-lg-5">
-      <div class="col-md-5 col-lg-4 offset-lg-1">
-        <div class="media-frame ratio-4x5">
-          <%- include('/partials/picture', { name: 'portrait-placeholder', alt: `${site.owner}, owner of ${site.name}`, width: 1024, height: 1536, cls: 'object-top' }) %>
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-md-5 col-lg-4 offset-lg-1 reveal">
+        <div class="frame ratio-4x5 object-top">
+          <%- include('/partials/picture', { name: 'portrait-placeholder', alt: `${site.owner}, owner of ${site.name}`, width: 1024, height: 1536 }) %>
         </div>
       </div>
-      <div class="col-md-7 col-lg-6 offset-lg-1">
-        <span class="eyebrow">About us</span>
-        <h2 id="about-heading">Cleaning built on trust</h2>
-        <p>Hi, I'm <%= site.owner %>, owner of <%= site.name %>. I've spent more than <%= site.yearsExperience %> years in the cleaning industry, starting with homes, offices and commercial spaces.</p>
-        <p>Along the way I learned that clients want more than a clean space. They want peace of mind, and to know their space is in good hands. That's what our team brings to every job.</p>
-        <a class="btn btn-outline-primary" href="/about/">More about us</a>
+      <div class="col-md-7 col-lg-6 offset-lg-1 reveal reveal-delay-1">
+        <h2 id="owner-heading" class="kicker"><%- include('/partials/star') %>A note from the owner</h2>
+        <blockquote class="mb-0">
+          <p class="pull-quote">"Quality should be visible, and consistency should <em>never be compromised.</em>"</p>
+        </blockquote>
+        <p class="mt-4 mb-0 mw-34">I started out cleaning homes, offices and commercial spaces. I learned that clients want more than a clean space. They want peace of mind. That's what we bring to every job.</p>
+        <div class="signature">
+          <span class="line" aria-hidden="true"></span>
+          <div><strong><%= site.owner %></strong><span>Owner, <%= site.name %></span></div>
+        </div>
+        <a class="link-arrow mt-4" href="/about/">Read our story <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
   </div>
@@ -132,19 +174,18 @@ preloadImage: cleaner-wiping-table
 
 <% if (reviews.length) { %>
 <!-- Reviews (only shown when reviews.json has entries) -->
-<section class="section section-light" aria-labelledby="reviews-heading">
+<section class="section" aria-labelledby="reviews-heading">
   <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Reviews</span>
-      <h2 id="reviews-heading">What our clients say</h2>
+    <div class="section-head reveal">
+      <span class="kicker"><%- include('/partials/star') %>Reviews</span>
+      <h2 id="reviews-heading" class="mb-0">What our clients <em>say</em></h2>
     </div>
-    <div class="row g-4 justify-content-center">
+    <div class="row g-4">
       <% reviews.forEach(review => { %>
-      <div class="col-md-6 col-lg-4">
-        <figure class="rc-card review-card mb-0">
-          <i class="bi bi-quote fs-1 text-accent" aria-hidden="true"></i>
-          <blockquote><p class="mb-0"><%= review.text %></p></blockquote>
-          <figcaption class="fw-semibold text-primary-brand"><%= review.name %><% if (review.service) { %><span class="d-block fw-normal text-muted small"><%= review.service %></span><% } %></figcaption>
+      <div class="col-md-6 col-lg-4 reveal">
+        <figure class="review-card mb-0">
+          <blockquote><p><%= review.text %></p></blockquote>
+          <figcaption><strong><%= review.name %></strong><% if (review.service) { %><span class="d-block text-muted small"><%= review.service %></span><% } %></figcaption>
         </figure>
       </div>
       <% }) %>
@@ -152,18 +193,5 @@ preloadImage: cleaner-wiping-table
   </div>
 </section>
 <% } %>
-
-<!-- Service area -->
-<section class="section <%= reviews.length ? '' : 'section-light' %>" aria-labelledby="area-heading">
-  <div class="container text-center">
-    <i class="bi bi-geo-alt-fill fs-1 text-accent" aria-hidden="true"></i>
-    <h2 id="area-heading" class="mt-2">
-      Proudly serving <% if (helpers.isTodo(site.serviceArea)) { %><%- include('/partials/todo', { label: 'Add service area' }) %><% } else { %><%= site.serviceArea %><% } %>
-    </h2>
-    <p class="lead mb-0">
-      <% if (helpers.isTodo(site.hours)) { %><%- include('/partials/todo', { label: 'Add business hours' }) %><% } else { %>Open <%= site.hours %><% } %>
-    </p>
-  </div>
-</section>
 
 <%- include('/partials/quote-cta') %>

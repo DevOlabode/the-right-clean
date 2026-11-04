@@ -5,25 +5,37 @@
     { href: '/about/', label: 'About' },
     { href: '/quote/', label: 'Contact' },
   ];
+  const tel = helpers.telHref(site.phone);
 %>
+<div class="topbar">
+  <div class="container d-flex justify-content-between align-items-center gap-3">
+    <p class="mb-0 d-none d-md-block">
+      <% if (!helpers.isTodo(site.serviceArea)) { %>Serving <%= site.serviceArea %><% } %>
+      <% if (!helpers.isTodo(site.hours)) { %><span class="sep" aria-hidden="true">/</span><%= site.hours %><% } %>
+    </p>
+    <% if (tel) { %>
+    <p class="mb-0 ms-md-auto"><%= site.phoneCanText ? 'Call or text' : 'Call' %> <a href="<%= tel %>"><%= site.phone %></a></p>
+    <% } %>
+  </div>
+</div>
 <header class="site-header sticky-top">
   <nav class="navbar navbar-expand-lg" aria-label="Main">
     <div class="container">
-      <a class="navbar-brand py-0" href="/">
+      <a class="navbar-brand py-0 me-lg-5" href="/">
         <img src="/assets/images/logo-wide.jpg" width="540" height="330" alt="<%= site.name %> home">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="mainNav">
-        <ul class="navbar-nav mx-lg-auto">
+        <ul class="navbar-nav me-auto">
           <% navLinks.forEach(link => { const active = page.url === link.href; %>
           <li class="nav-item">
             <a class="nav-link<%= active ? ' active' : '' %>" href="<%= link.href %>"<%- active ? ' aria-current="page"' : '' %>><%= link.label %></a>
           </li>
           <% }) %>
         </ul>
-        <a class="btn btn-primary mt-2 mt-lg-0" href="/quote/">Get a Free Quote</a>
+        <a class="btn btn-primary mt-3 mt-lg-0" href="/quote/">Get a Free Quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
       </div>
     </div>
   </nav>
