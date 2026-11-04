@@ -16,5 +16,23 @@
   },
   "web3formsKey": "TODO",
   "url": "https://the-right-clean.vercel.app",
-  "preview": true
+  "preview": true,
+  "questions":[
+    {
+      "question": "What is the Right Clean?",
+      "answer": "The Right Clean is a cleaning company that cleans your home or office."
+    },
+    {
+      "question": "What is the Right Clean?",
+      "answer": "The Right Clean is a cleaning company that cleans your home or office."
+    },
+    {
+      "question": "What is the Right Clean?",
+      "answer": "The Right Clean is a cleaning company that cleans your home or office."
+    },
+    {
+      "question": "What is the Right Clean?",
+      "answer": "The Right Clean is a cleaning company that cleans your home or office."
+    }
+  ]
 }
