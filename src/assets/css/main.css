@@ -89,8 +89,8 @@ img { max-width: 100%; height: auto; }
 .container { --bs-gutter-x: 2.5rem; max-width: 1240px; }   /* 20px side gutter on phones */
 @media (min-width: 992px) { .container { --bs-gutter-x: 3rem; } }
 
-/* Reserve icon space so nothing shifts when the icon font arrives */
-.bi { display: inline-block; width: 1em; line-height: 1; }
+/* Inline SVG icons (see helpers.icon) */
+.bi { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; flex-shrink: 0; }
 
 /* ---------- Type ---------- */
 h1, h2, h3, .h1, .h2, .h3, .display {

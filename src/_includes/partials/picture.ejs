@@ -1,10 +1,13 @@
 <%#
   WebP + JPG image. Required: name (file name without extension), alt.
-  Optional: width/height (aspect ratio hint), cls, eager (above the fold),
-  mobile (name of a smaller version served below 768px).
+  Optional: width/height (intrinsic size of the full file, default 1400x933), cls,
+  eager (above the fold), sizes (when an 800px "-800" version exists, the browser picks the smaller one).
+%>
+<%
+  const w = locals.width || 1400, h = locals.height || 933;
+  const set = (ext) => locals.sizes ? `/assets/images/${name}-800.${ext} 800w, /assets/images/${name}.${ext} ${w}w` : `/assets/images/${name}.${ext}`;
 %>
 <picture>
-  <% if (locals.mobile) { %><source media="(max-width: 767px)" srcset="/assets/images/<%= mobile %>.webp" type="image/webp"><% } %>
-  <source srcset="/assets/images/<%= name %>.webp" type="image/webp">
-  <img src="/assets/images/<%= name %>.jpg" alt="<%= alt %>" width="<%= locals.width || 1400 %>" height="<%= locals.height || 933 %>"<% if (locals.cls) { %> class="<%= locals.cls %>"<% } %> <%- locals.eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"' %>>
+  <source srcset="<%= set('webp') %>"<% if (locals.sizes) { %> sizes="<%= sizes %>"<% } %> type="image/webp">
+  <img src="/assets/images/<%= name %>.jpg"<% if (locals.sizes) { %> srcset="<%= set('jpg') %>" sizes="<%= sizes %>"<% } %> alt="<%= alt %>" width="<%= w %>" height="<%= h %>"<% if (locals.cls) { %> class="<%= locals.cls %>"<% } %> <%- locals.eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"' %>>
 </picture>

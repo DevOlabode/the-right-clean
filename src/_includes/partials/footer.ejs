@@ -23,19 +23,19 @@
       <div class="col-12 col-sm-6 col-lg-4">
         <h2>Contact</h2>
         <ul class="footer-contact">
-          <li><i class="bi bi-telephone" aria-hidden="true"></i>
+          <li><%- helpers.icon('telephone') %>
             <div><% if (phoneHref) { %><a href="<%= phoneHref %>"><%= site.phone %></a><% } else { %><%- include('/partials/todo', { label: 'Add phone number' }) %><% } %></div>
           </li>
-          <li><i class="bi bi-envelope" aria-hidden="true"></i>
+          <li><%- helpers.icon('envelope') %>
             <div>
               <a href="mailto:<%= site.email %>"><%= site.email %></a>
               <% if (!site.emailConfirmed) { %><br><%- include('/partials/todo', { label: 'Confirm email works' }) %><% } %>
             </div>
           </li>
-          <li><i class="bi bi-geo-alt" aria-hidden="true"></i>
+          <li><%- helpers.icon('geo-alt') %>
             <div><% if (helpers.isTodo(site.serviceArea)) { %><%- include('/partials/todo', { label: 'Add service area' }) %><% } else { %><%= site.serviceArea %><% } %></div>
           </li>
-          <li><i class="bi bi-clock" aria-hidden="true"></i>
+          <li><%- helpers.icon('clock') %>
             <div><% if (helpers.isTodo(site.hours)) { %><%- include('/partials/todo', { label: 'Add business hours' }) %><% } else { %><%= site.hours %><% } %></div>
           </li>
         </ul>
@@ -44,8 +44,8 @@
       <div class="col-6 col-lg-2">
         <h2>Follow</h2>
         <div class="social-links d-flex gap-2">
-          <a href="<%= site.socials.facebook %>" target="_blank" rel="noopener" aria-label="<%= site.name %> on Facebook (opens in new tab)"><i class="bi bi-facebook" aria-hidden="true"></i></a>
-          <a href="<%= site.socials.instagram %>" target="_blank" rel="noopener" aria-label="<%= site.name %> on Instagram (opens in new tab)"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+          <a href="<%= site.socials.facebook %>" target="_blank" rel="noopener" aria-label="<%= site.name %> on Facebook (opens in new tab)"><%- helpers.icon('facebook') %></a>
+          <a href="<%= site.socials.instagram %>" target="_blank" rel="noopener" aria-label="<%= site.name %> on Instagram (opens in new tab)"><%- helpers.icon('instagram') %></a>
         </div>
       </div>
     </div>

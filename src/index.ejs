@@ -4,7 +4,8 @@ title: The Right Clean
 description: "Professional cleaning you can trust in Edmonton: commercial, move-in/move-out, post construction, floor care, carpet and medical/dental cleaning. Get a free quote."
 permalink: /
 preloadImage: hero-office-vacuum
-preloadImageMobile: hero-office-vacuum-900
+preloadWidth: 1800
+preloadSizes: "(min-width: 992px) 50vw, 100vw"
 ---
 <%
   const heroFacts = ['Trained, quality-checked team', 'Free, no-obligation quotes'];
@@ -27,7 +28,7 @@ preloadImageMobile: hero-office-vacuum-900
         <h1 class="display mb-4">Professional cleaning you can <em>trust.</em></h1>
         <p class="lead mb-4 pb-1">Offices, medical and dental spaces, new builds and move-in/move-out properties. Cleaned with care and checked for quality, so you can focus on everything else.</p>
         <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-primary btn-lg" href="/quote/">Get a Free Quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-primary btn-lg" href="/quote/">Get a Free Quote <%- helpers.icon('arrow-right') %></a>
           <a class="btn btn-outline-dark btn-lg" href="/services/">Explore services</a>
         </div>
         <ul class="hero-facts">
@@ -37,11 +38,11 @@ preloadImageMobile: hero-office-vacuum-900
       <div class="col-lg-6">
         <div class="hero-media">
           <div class="frame">
-            <%- include('/partials/picture', { name: 'hero-office-vacuum', mobile: 'hero-office-vacuum-900', alt: 'A cleaner vacuuming a bright, modern glass-walled office', width: 2000, height: 1600, eager: true }) %>
+            <%- include('/partials/picture', { name: 'hero-office-vacuum', alt: 'A cleaner vacuuming a bright, modern glass-walled office', width: 1800, height: 1440, sizes: '(min-width: 992px) 50vw, 100vw', eager: true }) %>
           </div>
           <div class="hero-badge" aria-hidden="true"><span><b><%= site.yearsExperience %>+</b>years</span></div>
           <div class="hero-card">
-            <img src="/assets/images/portrait-placeholder.jpg" width="56" height="56" alt="" loading="lazy">
+            <img src="/assets/images/portrait-avatar.jpg" width="56" height="56" alt="">
             <div>
               <strong>Owner-led by <%= site.owner %></strong>
               <span><%= site.yearsExperience %>+ years in the cleaning industry</span>
@@ -94,7 +95,7 @@ preloadImageMobile: hero-office-vacuum-900
       </div>
       <div class="col-lg-5 reveal reveal-delay-1">
         <p class="lead mb-3">From busy offices to brand-new builds, every clean is tailored to your space and your schedule.</p>
-        <a class="link-arrow" href="/services/">See all services <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        <a class="link-arrow" href="/services/">See all services <%- helpers.icon('arrow-right') %></a>
       </div>
     </div>
     <div class="row g-3 g-lg-4 service-scroller reveal" role="list">
@@ -104,7 +105,7 @@ preloadImageMobile: hero-office-vacuum-900
       </div>
       <% }) %>
     </div>
-    <p class="swipe-hint d-md-none mt-3 mb-0" aria-hidden="true">Swipe to see all <%= services.length %> services <i class="bi bi-arrow-right"></i></p>
+    <p class="swipe-hint d-md-none mt-3 mb-0" aria-hidden="true">Swipe to see all <%= services.length %> services <%- helpers.icon('arrow-right') %></p>
   </div>
 </section>
 
@@ -118,11 +119,11 @@ preloadImageMobile: hero-office-vacuum-900
       <ul class="checklist">
         <% specialty.includes.slice(0, 4).forEach(item => { %><li><%= item %></li><% }) %>
       </ul>
-      <a class="btn btn-light btn-lg" href="/quote/?service=specialty-cleaning">Get a clinic cleaning quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+      <a class="btn btn-light btn-lg" href="/quote/?service=specialty-cleaning">Get a clinic cleaning quote <%- helpers.icon('arrow-right') %></a>
     </div>
   </div>
   <div class="split-media">
-    <%- include('/partials/picture', { name: 'dental-room-clean', alt: 'A clean, bright dental treatment room' }) %>
+    <%- include('/partials/picture', { name: 'dental-room-clean', alt: 'A clean, bright dental treatment room', sizes: '(min-width: 992px) 50vw, 100vw' }) %>
   </div>
 </section>
 
@@ -166,7 +167,7 @@ preloadImageMobile: hero-office-vacuum-900
           <span class="line" aria-hidden="true"></span>
           <div><strong><%= site.owner %></strong><span>Owner, <%= site.name %></span></div>
         </div>
-        <a class="link-arrow mt-4" href="/about/">Read our story <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+        <a class="link-arrow mt-4" href="/about/">Read our story <%- helpers.icon('arrow-right') %></a>
       </div>
     </div>
   </div>

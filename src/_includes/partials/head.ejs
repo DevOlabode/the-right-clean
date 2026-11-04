@@ -37,15 +37,11 @@
 <meta name="theme-color" content="#0B1B33">
 
 <!-- Fonts and styles -->
-<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
-<% if (locals.preloadImageMobile) { %>
-<link rel="preload" as="image" href="/assets/images/<%= preloadImageMobile %>.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high">
-<link rel="preload" as="image" href="/assets/images/<%= preloadImage %>.webp" type="image/webp" media="(min-width: 768px)" fetchpriority="high">
+<% if (locals.preloadImage && locals.preloadSizes) { %><link rel="preload" as="image" type="image/webp" imagesrcset="/assets/images/<%= preloadImage %>-800.webp 800w, /assets/images/<%= preloadImage %>.webp <%= locals.preloadWidth || 1400 %>w" imagesizes="<%= preloadSizes %>" fetchpriority="high">
 <% } else if (locals.preloadImage) { %><link rel="preload" as="image" href="/assets/images/<%= preloadImage %>.webp" type="image/webp" fetchpriority="high"><% } %>
+<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/bootstrap/bootstrap.min.css">
-<%# Icons are decorative, so their CSS loads without blocking the first paint %>
-<link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="/assets/vendor/bootstrap-icons/bootstrap-icons.min.css"></noscript>
 <link rel="stylesheet" href="/assets/css/main.css">
 <% if (page.url === '/') { %><script type="application/ld+json"><%- JSON.stringify(helpers.localBusinessSchema(site, services)).replace(/</g, '\\u003c') %></script><% } %>

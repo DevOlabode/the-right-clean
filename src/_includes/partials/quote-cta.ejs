@@ -8,8 +8,8 @@
         <h2 id="quote-cta-heading" class="display mb-4">Ready for <em>The Right Clean?</em></h2>
         <p class="lead mw-34 mb-4">Tell us about your space and we'll get back to you with a clear quote that fits it.</p>
         <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-light btn-lg" href="/quote/">Get a Free Quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
-          <% if (ctaTel) { %><a class="btn btn-outline-light btn-lg" href="<%= ctaTel %>"><i class="bi bi-telephone" aria-hidden="true"></i> <%= site.phone %></a><% } %>
+          <a class="btn btn-light btn-lg" href="/quote/">Get a Free Quote <%- helpers.icon('arrow-right') %></a>
+          <% if (ctaTel) { %><a class="btn btn-outline-light btn-lg" href="<%= ctaTel %>"><%- helpers.icon('telephone') %> <%= site.phone %></a><% } %>
         </div>
       </div>
       <div class="col-lg-5 reveal reveal-delay-1">

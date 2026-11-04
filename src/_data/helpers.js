@@ -1,3 +1,7 @@
+import { readFileSync } from "node:fs";
+
+const iconCache = new Map();
+
 // Template helpers, available in every EJS template as `helpers.*`.
 export default {
   // True when a site.json value is unconfirmed ("TODO", empty, null or undefined).
@@ -30,6 +34,14 @@ export default {
     if (known(site.serviceArea)) schema.areaServed = site.serviceArea;
     if (known(site.openingHoursSchema)) schema.openingHours = site.openingHoursSchema;
     return schema;
+  },
+  // Inline SVG from the bootstrap-icons package (no icon font to download).
+  icon(name, extraClass = "") {
+    if (!iconCache.has(name)) {
+      const svg = readFileSync(new URL(`../../node_modules/bootstrap-icons/icons/${name}.svg`, import.meta.url), "utf8");
+      iconCache.set(name, svg.replace(/\s(width|height|class)="[^"]*"/g, ""));
+    }
+    return iconCache.get(name).replace("<svg", `<svg class="bi bi-${name}${extraClass ? " " + extraClass : ""}" aria-hidden="true" focusable="false"`);
   },
   year: new Date().getFullYear(),
 };

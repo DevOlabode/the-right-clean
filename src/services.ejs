@@ -36,7 +36,7 @@ permalink: /services/
     <div class="row g-4 g-lg-5 align-items-center">
       <div class="col-lg-6<%= flip ? ' order-lg-2' : '' %> reveal">
         <div class="frame ratio-4x3">
-          <%- include('/partials/picture', { name: service.image, alt: service.imageAlt, eager: i === 0 }) %>
+          <%- include('/partials/picture', { name: service.image, alt: service.imageAlt, sizes: '(min-width: 992px) 50vw, 100vw', eager: i === 0 }) %>
         </div>
       </div>
       <div class="col-lg-6 reveal reveal-delay-1">
@@ -48,7 +48,7 @@ permalink: /services/
           <ul class="checklist">
             <% service.includes.forEach(item => { %><li><%= item %></li><% }) %>
           </ul>
-          <a class="btn btn-primary" href="/quote/?service=<%= service.slug %>">Get a quote for <%= shortTitle(service.title) %> <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          <a class="btn btn-primary" href="/quote/?service=<%= service.slug %>">Get a quote for <%= shortTitle(service.title) %> <%- helpers.icon('arrow-right') %></a>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@ permalink: /services/
       <span class="kicker"><%- include('/partials/star') %>Not sure what you need?</span>
       <h2 class="mb-3">Tell us about the space. <em>We'll suggest the right clean.</em></h2>
       <p class="text-muted mx-auto mb-4" style="max-width: 36rem;">Describe the space and what's bothering you, and we'll send back a free quote with the right service.</p>
-      <a class="btn btn-dark btn-lg" href="/quote/">Ask us for a quote <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+      <a class="btn btn-dark btn-lg" href="/quote/">Ask us for a quote <%- helpers.icon('arrow-right') %></a>
     </div>
   </div>
 </section>

@@ -97,7 +97,7 @@ permalink: /quote/
               <div class="col-12">
                 <label for="f-details" class="form-label">Details</label>
                 <textarea id="f-details" name="details" class="form-control" rows="5" placeholder="Number of rooms, condition, anything we should know" aria-describedby="f-details-hint"></textarea>
-                <div id="f-details-hint" class="form-text"><i class="bi bi-camera me-1" aria-hidden="true"></i>Have photos? Mention it and we'll ask for them when we reply.</div>
+                <div id="f-details-hint" class="form-text"><%- helpers.icon('camera', 'me-1') %>Have photos? Mention it and we'll ask for them when we reply.</div>
               </div>
 
               <div class="col-12">
@@ -119,7 +119,7 @@ permalink: /quote/
               <div class="col-12">
                 <% if (helpers.isTodo(site.web3formsKey)) { %><p><%- include('/partials/todo', { label: 'Add Web3Forms key to site.json — form will not send yet' }) %></p><% } %>
                 <button type="submit" class="btn btn-primary btn-lg submit-btn">
-                  <span class="btn-label">Send my quote request</span> <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  <span class="btn-label">Send my quote request</span> <%- helpers.icon('arrow-right') %>
                 </button>
               </div>
             </div>
@@ -159,8 +159,8 @@ permalink: /quote/
             </li>
           </ul>
           <div class="d-flex gap-2 mt-2">
-            <a class="btn btn-outline-light btn-sm" href="<%= site.socials.facebook %>" target="_blank" rel="noopener"><i class="bi bi-facebook me-1" aria-hidden="true"></i>Facebook<span class="visually-hidden"> (opens in new tab)</span></a>
-            <a class="btn btn-outline-light btn-sm" href="<%= site.socials.instagram %>" target="_blank" rel="noopener"><i class="bi bi-instagram me-1" aria-hidden="true"></i>Instagram<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-outline-light btn-sm" href="<%= site.socials.facebook %>" target="_blank" rel="noopener"><%- helpers.icon('facebook', 'me-1') %>Facebook<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-outline-light btn-sm" href="<%= site.socials.instagram %>" target="_blank" rel="noopener"><%- helpers.icon('instagram', 'me-1') %>Instagram<span class="visually-hidden"> (opens in new tab)</span></a>
           </div>
       </aside>
     </div>
