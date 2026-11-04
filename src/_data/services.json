@@ -3,48 +3,92 @@
     "slug": "commercial-cleaning",
     "title": "Commercial Cleaning",
     "shortText": "Impress clients and boost productivity with a clean workspace.",
+    "longText": "A clean workplace makes a good first impression and helps your team do their best work. We clean offices and commercial spaces on a schedule that suits you, with routine and deep cleaning options, so you can focus on running your business.",
     "icon": "building",
     "image": "cleaner-wiping-table",
-    "includes": []
+    "includes": [
+      "Desks, tables and shared surfaces wiped down",
+      "Kitchens and break rooms cleaned",
+      "Washrooms cleaned and disinfected",
+      "Door handles, switches and other high-touch points disinfected",
+      "Floors vacuumed and mopped",
+      "Garbage and recycling emptied"
+    ]
   },
   {
     "slug": "move-in-move-out-cleaning",
     "title": "Move-In / Move-Out Cleaning",
     "shortText": "Start fresh or leave on a high note.",
+    "longText": "Moving is busy enough. Whether you're getting a place ready for new tenants, handing back the keys or settling into a new home, we take care of the cleaning so the space is fresh and ready for whoever walks in next.",
     "icon": "box-seam",
-    "image": "cleaner-wiping-table",
-    "includes": []
+    "image": null,
+    "includes": [
+      "Inside cabinets and drawers",
+      "Appliances wiped inside and out",
+      "Baseboards and window sills",
+      "Bathrooms scrubbed and disinfected",
+      "Floors vacuumed and mopped"
+    ]
   },
   {
     "slug": "post-construction-cleaning",
     "title": "Post Construction Cleaning",
     "shortText": "From construction dust to move-in ready. We handle the final clean, so you can focus on the final reveal.",
+    "longText": "Construction and renovation leave dust and debris in every corner. We do the final clean after the trades are done, so your new build or renovated space is ready to move into or show off.",
     "icon": "cone-striped",
-    "image": "cleaner-wiping-table",
-    "includes": []
+    "image": null,
+    "includes": [
+      "Construction dust removed from surfaces, ledges and fixtures",
+      "Windows, frames and tracks cleaned",
+      "Cabinets, counters and fixtures wiped inside and out",
+      "Stickers and light residue removed",
+      "Floors vacuumed and washed",
+      "Final detail clean before move-in"
+    ]
   },
   {
     "slug": "floor-care",
     "title": "Floor Care",
     "shortText": "Spotless, well-kept floors are the foundation of a beautiful, welcoming space.",
+    "longText": "Floors take the most wear in any space. We keep them clean and cared for so they look good and last longer, whether it's a busy office lobby or a clinic hallway.",
     "icon": "stars",
-    "image": "cleaner-wiping-table",
-    "includes": []
+    "image": null,
+    "includes": [
+      "Sweeping and mopping",
+      "Hard floors scrubbed",
+      "Scuffs and spots treated",
+      "Entrances and high-traffic areas given extra attention",
+      "Care suited to tile, vinyl, laminate and hardwood"
+    ]
   },
   {
     "slug": "carpet-cleaning",
     "title": "Carpet Cleaning",
     "shortText": "Fresh, deep-cleaned carpets that look and feel better underfoot.",
+    "longText": "Carpets hold onto dirt, dust and stains you can't always see. Our carpet cleaning lifts the build-up and brings back a fresher look and feel, in homes and workplaces.",
     "icon": "wind",
-    "image": "cleaner-wiping-table",
-    "includes": []
+    "image": null,
+    "includes": [
+      "Thorough vacuuming",
+      "Spot and stain treatment",
+      "Deep cleaning of high-traffic areas",
+      "Area rugs and runners",
+      "Carpets left fresh and clean"
+    ]
   },
   {
     "slug": "specialty-cleaning",
     "title": "Specialty Cleaning (Medical & Dental)",
     "shortText": "Detailed cleaning that keeps medical and dental spaces clean, safe and hygienic.",
+    "longText": "A higher standard of clean for spaces dedicated to care. Medical and dental offices need careful, detailed cleaning. We clean your clinic with attention to hygiene, so your patients and staff can feel safe and comfortable.",
     "icon": "heart-pulse",
-    "image": "cleaner-wiping-table",
-    "includes": []
+    "image": null,
+    "includes": [
+      "Exam and treatment rooms cleaned with care",
+      "Reception and waiting areas",
+      "High-touch surfaces disinfected",
+      "Washrooms cleaned and disinfected",
+      "Floors cleaned and disinfected"
+    ]
   }
 ]
