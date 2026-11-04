@@ -543,6 +543,7 @@ a:hover { color: var(--rc-blue-dark); }
 
 /* ---------- Utilities ---------- */
 .mw-34 { max-width: 34rem; }
+.text-ink { color: var(--rc-ink) !important; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
