@@ -1,18 +1,68 @@
 ---
 layout: layouts/base.ejs
 title: Our Services
-description: "Commercial, move-in/move-out, post construction, floor care, carpet and medical/dental cleaning from The Right Clean."
+description: "Commercial, move-in/move-out, post construction, floor care, carpet and medical/dental cleaning from The Right Clean in Edmonton. See what's included and get a free quote."
 permalink: /services/
 ---
 <section class="page-header">
   <div class="container">
+    <span class="eyebrow">Services</span>
     <h1>Our Services</h1>
-    <p class="lead mb-0">Cleaning for offices, care spaces, new builds and moves.</p>
+    <p class="lead mb-0">Cleaning tailored to your space, from offices and clinics to new builds and moves.</p>
   </div>
 </section>
-<section class="section">
+
+<% const shortTitle = (t) => t.replace(/\s*\(.*\)$/, ''); %>
+<nav class="service-nav" aria-label="Jump to a service">
   <div class="container">
-    <p class="text-muted">Page content coming in Phase 2.</p>
+    <ul>
+      <% services.forEach(service => { %>
+      <li><a href="#<%= service.slug %>"><%= shortTitle(service.title) %></a></li>
+      <% }) %>
+    </ul>
+  </div>
+</nav>
+
+<%# "includes" checklists in services.json are standard industry scope; confirm with client. %>
+<% services.forEach((service, i) => { const flip = i % 2 === 1; %>
+<section class="section service-section<%= flip ? ' section-light' : '' %>" id="<%= service.slug %>" aria-labelledby="<%= service.slug %>-heading">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-md-6<%= flip ? ' order-md-2' : '' %><%= service.image ? '' : ' d-none d-md-block' %>">
+        <% if (service.image) { %>
+        <div class="media-frame ratio-4x3">
+          <%- include('/partials/picture', { name: service.image, alt: '', width: 1024, height: 1024 }) %>
+        </div>
+        <% } else { %>
+        <div class="media-frame ratio-4x3 icon-panel" aria-hidden="true"><i class="bi bi-<%= service.icon %>"></i></div>
+        <% } %>
+      </div>
+      <div class="col-md-6">
+        <span class="icon-badge<%= service.image ? '' : ' d-md-none' %>" aria-hidden="true"><i class="bi bi-<%= service.icon %>"></i></span>
+        <h2 id="<%= service.slug %>-heading"><%= service.title %></h2>
+        <p><%= service.longText %></p>
+        <h3 class="h4 mt-4 mb-3">What's included</h3>
+        <ul class="checklist">
+          <% service.includes.forEach(item => { %>
+          <li><%= item %></li>
+          <% }) %>
+        </ul>
+        <a class="btn btn-primary" href="/quote/?service=<%= service.slug %>">Get a quote for <%= shortTitle(service.title) %></a>
+      </div>
+    </div>
   </div>
 </section>
+<% }) %>
+
+<section class="section pb-0">
+  <div class="container">
+    <div class="help-box">
+      <i class="bi bi-chat-dots fs-1 text-accent" aria-hidden="true"></i>
+      <h2 class="h3 mt-2">Not sure what you need?</h2>
+      <p class="text-muted mx-auto" style="max-width: 36rem;">Tell us about your space and what's bothering you. We'll suggest the right clean and send you a free quote.</p>
+      <a class="btn btn-outline-primary" href="/quote/">Ask us for a quote</a>
+    </div>
+  </div>
+</section>
+
 <%- include('/partials/quote-cta') %>
