@@ -282,7 +282,6 @@ html:not(.js) .included-tabs { display: none; }
   .service-nav { position: sticky; top: var(--rc-header-h); }
   .service-section { scroll-margin-top: calc(var(--rc-header-h) + 72px); }
 }
-.service-section + .service-section { border-top: 1px solid var(--rc-line); }
 .help-box { background: var(--rc-mist); border-radius: var(--rc-radius); padding: 2.5rem 1.5rem; }
 @media (min-width: 768px) { .help-box { padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; } }
 
@@ -298,7 +297,6 @@ html:not(.js) .included-tabs { display: none; }
 .prose { max-width: 44rem; }
 .prose h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 0.75rem; }
 .prose ul { padding-left: 1.25rem; }
-.template-note { border: 2px dashed #C99A06; background: #FFF8DB; color: #5C4500; border-radius: 8px; padding: 1rem 1.25rem; font-weight: 600; }
 
 /* ---------- TODO placeholder (unconfirmed info) ---------- */
 .todo-placeholder { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.2rem 0.6rem; border: 2px dashed #C99A06; border-radius: 6px; background: #FFF8DB; color: #5C4500; font-size: 0.875rem; font-weight: 600; line-height: 1.4; }
@@ -343,3 +341,17 @@ html:not(.js) .included-tabs { display: none; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* ---------- Home: grouped service list ---------- */
+.service-groups { display: grid; gap: 2.5rem; }
+@media (min-width: 992px) { .service-groups { grid-template-columns: repeat(3, 1fr); gap: 3rem; } }
+.service-list { list-style: none; padding: 0; margin: 0; border-top: 2px solid var(--rc-ink); }
+.service-list li { border-bottom: 1px solid var(--rc-line); }
+.service-list a { display: block; padding: 1rem 0; text-decoration: none; color: inherit; }
+.service-list .name { display: block; font-weight: 700; font-size: 1.15rem; color: var(--rc-ink); letter-spacing: -0.01em; }
+.service-list .desc { display: block; color: var(--rc-muted); font-size: 0.975rem; margin-top: 0.15rem; }
+.service-list a:hover .name { color: var(--rc-blue); text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* ---------- Services page groups ---------- */
+@media (min-width: 768px) { .checklist.two-col { columns: 2; column-gap: 2rem; } .checklist.two-col li { break-inside: avoid; } }
+.floor-box { border-top: 2px solid var(--rc-ink); padding-top: 1.25rem; height: 100%; }

@@ -2,8 +2,10 @@
   {
     "slug": "commercial-cleaning",
     "title": "Commercial Cleaning",
-    "shortText": "Impress clients and boost productivity with a clean workspace.",
-    "longText": "A clean workplace makes a good first impression and helps your team do their best work. We clean offices and commercial spaces on a schedule that suits you, with routine and deep cleaning options, so you can focus on running your business.",
+    "group": "business",
+    "forWho": "Offices and commercial spaces",
+    "shortText": "Regular cleaning for offices and commercial spaces, or a one-off deep clean when you need it.",
+    "longText": "Tell us how often, which rooms and what time of day works, and we'll price it for your space. Most offices want the same few things done properly every visit: desks, kitchens, washrooms, floors and the bins.",
     "icon": "building",
     "image": "commercial-desk-cleaning",
     "imageAlt": "Gloved hands cleaning an office desk with a spray bottle and cloth",
@@ -17,10 +19,30 @@
     ]
   },
   {
+    "slug": "specialty-cleaning",
+    "title": "Specialty Cleaning (Medical & Dental)",
+    "group": "business",
+    "forWho": "Medical and dental offices",
+    "shortText": "Detailed cleaning and disinfecting for clinics.",
+    "longText": "Clinics need more than a quick wipe-down. Exam and treatment rooms, the front desk and waiting area, and washrooms all get cleaned and disinfected, with extra care on the handles, counters and chairs people touch all day.",
+    "icon": "heart-pulse",
+    "image": "specialty-clinic-hallway",
+    "imageAlt": "A cleaner mopping the floor of a clinical hallway",
+    "includes": [
+      "Exam and treatment rooms cleaned with care",
+      "Reception and waiting areas",
+      "High-touch surfaces disinfected",
+      "Washrooms cleaned and disinfected",
+      "Floors cleaned and disinfected"
+    ]
+  },
+  {
     "slug": "move-in-move-out-cleaning",
     "title": "Move-In / Move-Out Cleaning",
-    "shortText": "Start fresh or leave on a high note.",
-    "longText": "Moving is busy enough. Whether you're getting a place ready for new tenants, handing back the keys or settling into a new home, we take care of the cleaning so the space is fresh and ready for whoever walks in next.",
+    "group": "one-time",
+    "forWho": "Empty homes and rental units",
+    "shortText": "A top-to-bottom clean while the place is empty, before you move in or after you move out.",
+    "longText": "For tenants, landlords, property managers and homeowners. Inside the cupboards, the appliances, the bathrooms, the baseboards and the floors, so it's ready for whoever's next.",
     "icon": "box-seam",
     "image": "move-out-living-room",
     "imageAlt": "A cleaner mopping the floor of a bright, empty living room",
@@ -35,8 +57,10 @@
   {
     "slug": "post-construction-cleaning",
     "title": "Post Construction Cleaning",
-    "shortText": "From construction dust to move-in ready. We handle the final clean, so you can focus on the final reveal.",
-    "longText": "Construction and renovation leave dust and debris in every corner. We do the final clean after the trades are done, so your new build or renovated space is ready to move into or show off.",
+    "group": "one-time",
+    "forWho": "After renovations and new builds",
+    "shortText": "The final clean once the trades are done.",
+    "longText": "Renovations leave fine dust on every ledge, frame and fixture, plus stickers and residue on new surfaces. We clean all of it so the space is ready for move-in or handover.",
     "icon": "cone-striped",
     "image": "post-construction-new-building",
     "imageAlt": "A cleaner working in a bright, newly built space",
@@ -52,8 +76,10 @@
   {
     "slug": "floor-care",
     "title": "Floor Care",
-    "shortText": "Spotless, well-kept floors are the foundation of a beautiful, welcoming space.",
-    "longText": "Floors take the most wear in any space. We keep them clean and cared for so they look good and last longer, whether it's a busy office lobby or a clinic hallway.",
+    "group": "floors",
+    "forWho": "Tile, vinyl, laminate and hardwood",
+    "shortText": "Sweeping, mopping and scrubbing for hard floors.",
+    "longText": "Book it on its own or add it to a regular office clean.",
     "icon": "stars",
     "image": "floor-care-scrub",
     "imageAlt": "Close-up of a gloved hand scrubbing a wet floor",
@@ -68,8 +94,10 @@
   {
     "slug": "carpet-cleaning",
     "title": "Carpet Cleaning",
-    "shortText": "Fresh, deep-cleaned carpets that look and feel better underfoot.",
-    "longText": "Carpets hold onto dirt, dust and stains you can't always see. Our carpet cleaning lifts the build-up and brings back a fresher look and feel, in homes and workplaces.",
+    "group": "floors",
+    "forWho": "Carpets and rugs",
+    "shortText": "Vacuuming, spot treatment and deep cleaning for carpets and rugs.",
+    "longText": "Useful for high-traffic areas, move-outs, and office carpets that have seen better days.",
     "icon": "wind",
     "image": "carpet-upholstery-vacuum",
     "imageAlt": "Upholstery being vacuumed with a professional attachment",
@@ -79,22 +107,6 @@
       "Deep cleaning of high-traffic areas",
       "Area rugs and runners",
       "Carpets left fresh and clean"
-    ]
-  },
-  {
-    "slug": "specialty-cleaning",
-    "title": "Specialty Cleaning (Medical & Dental)",
-    "shortText": "Detailed cleaning that keeps medical and dental spaces clean, safe and hygienic.",
-    "longText": "A higher standard of clean for spaces dedicated to care. Medical and dental offices need careful, detailed cleaning. We clean your clinic with attention to hygiene, so your patients and staff can feel safe and comfortable.",
-    "icon": "heart-pulse",
-    "image": "specialty-clinic-hallway",
-    "imageAlt": "A cleaner mopping the floor of a clinical hallway",
-    "includes": [
-      "Exam and treatment rooms cleaned with care",
-      "Reception and waiting areas",
-      "High-touch surfaces disinfected",
-      "Washrooms cleaned and disinfected",
-      "Floors cleaned and disinfected"
     ]
   }
 ]

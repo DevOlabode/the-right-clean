@@ -1,24 +1,17 @@
 ---
 layout: layouts/base.ejs
 title: About Us
-description: "Meet Gbemisola Famade and the team at The Right Clean: more than 7 years in cleaning, built on trust, consistent quality and peace of mind."
+description: "The Right Clean is run by Gbemisola Famade, who has worked in cleaning for over 7 years. Trained, insured cleaners for offices, clinics and move-outs in Edmonton."
 permalink: /about/
 preloadImage: portrait-placeholder
 ---
 <%
   const firstName = site.owner.split(' ')[0];
-  const teamPoints = ['Trained', 'Quality-checked'];
-  if (site.insured === true) teamPoints.splice(1, 0, 'Insured');
-  const values = [
-    { title: 'Teamwork', text: 'We work together on every job, so nothing gets missed and the work gets done well.' },
-    { title: 'Reliability', text: 'We show up when we say we will and clean to the same standard every time.' },
-    { title: 'Attention to detail', text: 'The small things matter. We notice them, so you can see the difference.' },
-  ];
+  const tel = helpers.telHref(site.phone);
 %>
 <section class="page-head">
   <div class="container">
-    <h1 class="mb-3">About The Right Clean</h1>
-    <p class="lead">A cleaning company built on trust, consistent quality and peace of mind.</p>
+    <h1 class="mb-0">About</h1>
   </div>
 </section>
 
@@ -34,12 +27,12 @@ preloadImage: portrait-placeholder
         </figure>
       </div>
       <div class="col-md-7 col-lg-7 offset-lg-1">
+        <%# Wording below is Gbemisola's own, from the old site, lightly trimmed. %>
         <h2 id="story-heading" class="mb-4">Hello, I'm <%= firstName %>.</h2>
-        <p class="lead text-ink">I'm the proud owner of <%= site.name %> and, above all, a lover of God.</p>
-        <p>I've worked in the cleaning industry for more than <%= site.yearsExperience %> years. It started with hands-on work cleaning homes, offices and commercial spaces, and it taught me one thing: quality should be visible, and consistency should never be compromised.</p>
-        <p>Along the way I learned that clients want more than a clean space. They want peace of mind, and to know their space is in good hands. That idea shapes how we clean, the standards we set and how we treat every client.</p>
-        <p>Our promise, "<%= site.tagline %>", is the standard we hold ourselves to on every job.</p>
-        <p class="mb-0">Thank you to every client who has trusted us. Your support and feedback help us keep getting better.</p>
+        <p>I'm the owner of <%= site.name %> and, above all, a lover of God.</p>
+        <p>I've been in the cleaning industry for over <%= site.yearsExperience %> years. I started with hands-on work, cleaning homes, offices and commercial spaces, and that's what grew into this business.</p>
+        <p>My rule is that quality should be visible, and consistency should never be compromised. That's where our name comes from: the right clean, every time.</p>
+        <p class="mb-0">I'm grateful to every client who has trusted <%= site.name %>, and I still want to hear from you when something could be better.</p>
       </div>
     </div>
   </div>
@@ -50,29 +43,20 @@ preloadImage: portrait-placeholder
     <div class="row g-4 g-lg-5 align-items-center">
       <div class="col-lg-6">
         <h2 id="team-heading" class="mb-3">The team</h2>
-        <p>Our cleaners are <%= teamPoints.join(', ').toLowerCase().replace(/, ([^,]*)$/, ' and $1') %>. Every team member gets proper training and regular quality checks, so you get the same thorough results on every visit.</p>
-        <p class="mb-3">We have specialists in deep cleaning, office cleaning and floor care, and the right tools and products for each job.</p>
-        <div class="d-flex flex-wrap gap-2">
-          <% teamPoints.forEach(p => { %><span class="tag"><%- helpers.icon('check-lg') %><%= p %></span><% }) %>
-        </div>
+        <p>Every cleaner is trained<%= site.insured === true ? ' and insured' : '' %>, and their work gets checked. Some of the team specialise in deep cleaning, office cleaning or floor care.</p>
+        <p class="mb-0">We bring the tools and products for the job.</p>
       </div>
       <div class="col-lg-6">
         <div class="photo ratio-4x3">
-          <%- include('/partials/picture', { name: 'office-corridor', alt: 'A spotless, bright office corridor with glass walls', sizes: '(min-width: 992px) 50vw, 100vw' }) %>
+          <%- include('/partials/picture', { name: 'office-corridor', alt: 'An office corridor', sizes: '(min-width: 992px) 50vw, 100vw' }) %>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" aria-labelledby="values-heading">
+<section class="section" aria-label="Contact">
   <div class="container">
-    <h2 id="values-heading" class="mb-4 mb-lg-5">What we care about</h2>
-    <div class="values">
-      <% values.forEach(v => { %><div><h3><%= v.title %></h3><p><%= v.text %></p></div><% }) %>
-    </div>
-    <p class="lead text-ink mt-5 mb-0" style="max-width: 44rem;">"Cleaning isn't just about the space we leave behind. It's about the confidence, comfort and peace of mind we create." <span class="text-muted">— <%= firstName %></span></p>
+    <p class="lead text-ink mb-0" style="max-width: 40rem;">Want a price for your space? <a href="/quote/">Send us the details</a><% if (tel) { %>, or <%= site.phoneCanText ? 'call or text' : 'call' %> <a href="<%= tel %>"><%= site.phone %></a><% } %>.</p>
   </div>
 </section>
-
-<%- include('/partials/quote-cta') %>

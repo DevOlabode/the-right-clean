@@ -4,10 +4,10 @@
   <div class="container">
     <div class="row g-4 g-lg-5 align-items-center">
       <div class="col-lg-6">
-        <h2 id="quote-cta-heading" class="mb-3">Get a free quote</h2>
-        <p class="lead mb-4">Tell us about your space and we'll send you a clear price for it. No cost and no obligation.</p>
+        <h2 id="quote-cta-heading" class="mb-3">Need a price?</h2>
+        <p class="lead mb-4">Send a few details about the space, or just text us. Quotes are free.</p>
         <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-primary btn-lg" href="/quote/">Request a quote <%- helpers.icon('arrow-right') %></a>
+          <a class="btn btn-primary btn-lg" href="/quote/">Get a free quote</a>
           <% if (ctaTel) { %><a class="btn btn-outline-dark btn-lg" href="<%= ctaTel %>"><%- helpers.icon('telephone') %> <%= site.phoneCanText ? 'Call or text' : 'Call' %> <%= site.phone %></a><% } %>
         </div>
       </div>

@@ -6,7 +6,7 @@
         <a class="footer-logo" href="/">
           <img src="/assets/images/logo-wide.jpg" width="540" height="330" alt="<%= site.name %> home" loading="lazy">
         </a>
-        <p class="mt-3 mb-0" style="max-width: 22rem;"><%= site.tagline %> Commercial, specialty and move-in/move-out cleaning in <%= helpers.isTodo(site.serviceArea) ? 'your area' : site.serviceArea %>.</p>
+        <p class="mt-3 mb-0" style="max-width: 22rem;">Office, clinic, move-out and post-construction cleaning in <%= helpers.isTodo(site.serviceArea) ? 'your area' : site.serviceArea %>.</p>
       </div>
       <div class="col-6 col-lg-2">
         <h2>Pages</h2>
@@ -14,7 +14,7 @@
           <li><a href="/">Home</a></li>
           <li><a href="/services/">Services</a></li>
           <li><a href="/about/">About</a></li>
-          <li><a href="/quote/">Get a free quote</a></li>
+          <li><a href="/quote/">Request a quote</a></li>
         </ul>
       </div>
       <div class="col-12 col-sm-6 col-lg-4">
@@ -44,7 +44,6 @@
     </div>
     <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between gap-2">
       <p class="mb-0">&copy; <%= helpers.year %> <%= site.name %> · <a href="/privacy/">Privacy</a></p>
-      <% if (site.preview) { %><p class="mb-0">Preview built by Samuel Olabode</p><% } %>
     </div>
   </div>
 </footer>

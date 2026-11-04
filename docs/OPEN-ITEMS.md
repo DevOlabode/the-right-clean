@@ -7,8 +7,8 @@ Everything still missing or unconfirmed before launch. Updated at the end of Pha
 | # | What's missing | Where it shows | How to fix |
 |---|---|---|---|
 | 1 | **Web3Forms access key** | Nothing visible: without a key the form runs in demo mode (validates, then shows /thank-you/, sends nothing). | Create a key at web3forms.com with the inbox that should receive quotes (info@rightclean.ca), put it in `site.json` → `web3formsKey`. |
-| 2 | **Reply time** ("within 1 business day") | Thank-you page: yellow box after the sentence | Confirm with the family. In `site.json` → `replyTime`, remove the `TODO: ` prefix (or change the wording). |
-| 3 | **Privacy policy review** | Privacy page: yellow "Template — have the business review before launch" box | Family reads the policy. Then delete the note in `src/privacy.ejs` (line marked `TODO`). |
+| 2 | **Reply time** ("within 1 business day") | Thank-you page says "We'll be in touch soon" until confirmed | Confirm with the family. In `site.json` → `replyTime`, remove the `TODO: ` prefix (or change the wording). |
+| 3 | **Privacy policy review** | Not shown on the page (removed for the demo) | Family reads the policy before launch. |
 | 4 | **Test quote submission** | — | After #1, submit a real test and confirm it arrives with all fields and lands on /thank-you/. |
 
 ## Content to confirm with the family (not shown as placeholders)

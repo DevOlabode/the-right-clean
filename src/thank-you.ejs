@@ -11,7 +11,7 @@ eleventyExcludeFromCollections: true
   <div class="container"><div class="message-page">
     <%- helpers.icon('check2-circle', 'bi-big') %>
     <h1 class="mb-3">Thanks, we've got your request.</h1>
-    <p class="lead">We'll get back to you <%= replyText %>.<% if (replyTodo) { %> <%- include('/partials/todo', { label: 'Confirm reply time with the family' }) %><% } %></p>
+    <p class="lead"><% if (replyTodo) { %>We'll be in touch soon.<% } else { %>We'll get back to you <%= replyText %>.<% } %></p>
     <% if (!helpers.isTodo(site.phone)) { %>
     <p class="text-muted">Need us sooner? <%= site.phoneCanText ? 'Call or text' : 'Call' %> <a href="<%= helpers.telHref(site.phone) %>"><%= site.phone %></a>.</p>
     <% } %>

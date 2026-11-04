@@ -58,10 +58,10 @@ vercel.json
 ## Rules
 
 1. **The business name is "The Right Clean" everywhere.** Never use "BrightShine" (a leftover from the old builder).
-2. **No fake content.** Don't invent reviews, phone numbers, addresses, stats, certifications, years in business or client names. Use `TODO:` values in `site.json`. Anything that isn't confirmed shows as a clearly styled placeholder (e.g. a dashed yellow box saying "Add phone number").
+2. **No fake content.** Don't invent reviews, phone numbers, addresses, stats, certifications, years in business or client names. Use `TODO:` values in `site.json`. Anything that isn't confirmed shows as a clearly styled placeholder (e.g. a dashed yellow box saying "Add phone number"), except where Samuel has asked for a clean demo (Web3Forms key, reply time, privacy review): those are tracked in `docs/OPEN-ITEMS.md` instead of shown on the page.
 3. **Don't copy the current site's reviews.** They look like template placeholders: one mentions "Body Sculpting & Firming Ritual at Mirela beauty salon", another says "BrightShine transformed my apartment". `reviews.json` starts empty and the reviews section hides itself when empty.
 4. **All business info comes from `src/_data/site.json`.** Never hard-code the phone, email, area or hours in templates.
-5. **Preview mode:** while `site.preview` is `true`, every page has `<meta name="robots" content="noindex, nofollow">` and the footer shows "Preview built by Samuel Olabode". Both disappear when it's `false`.
+5. **Preview mode:** while `site.preview` is `true`, every page has `<meta name="robots" content="noindex, nofollow">` and robots.txt blocks crawlers. (Samuel removed the visible "Preview built by" footer credit in Nov 2026 so the demo reads as the real business site.)
 6. **Accessibility:** every image has meaningful alt text (or `alt=""` if decorative), colour contrast meets WCAG AA, pinch-zoom is never disabled, forms have labels and work by keyboard.
 7. **Mobile first.** Design and test at 375px wide first, then tablet and desktop.
 8. **Performance:** images are resized and served as WebP/JPG with width/height set, `loading="lazy"` below the fold. Target Lighthouse 90+ in all four categories.

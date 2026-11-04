@@ -1,14 +1,17 @@
 ---
 layout: layouts/base.ejs
 title: Our Services
-description: "Commercial, move-in/move-out, post construction, floor care, carpet and medical/dental cleaning from The Right Clean in Edmonton. See what's included and get a free quote."
+description: "Office and clinic cleaning, move-in/move-out and post-construction cleans, and floor and carpet care in Edmonton. See what each clean covers."
 permalink: /services/
 ---
-<% const shortTitle = (t) => t.replace(/\s*\(.*\)$/, ''); %>
+<%
+  const shortTitle = (t) => t.replace(/\s*\(.*\)$/, '');
+  const by = (g) => services.filter(s => s.group === g);
+%>
 <section class="page-head">
   <div class="container">
     <h1 class="mb-3">Services</h1>
-    <p class="lead">Six kinds of cleaning, each with its own checklist. Routine or deep cleaning, booked around your schedule. Every quote is free.</p>
+    <p class="lead">Regular cleaning for offices and clinics, one-time cleans for moves and renovations, and floor and carpet care.</p>
   </div>
 </section>
 
@@ -21,37 +24,76 @@ permalink: /services/
 </nav>
 
 <%# "includes" checklists in services.json are standard industry scope; confirm with client. %>
-<% services.forEach((service, i) => { const flip = i % 2 === 1; %>
-<section class="section service-section<%= flip ? ' section-paper' : '' %>" id="<%= service.slug %>" aria-labelledby="<%= service.slug %>-heading">
+
+<!-- Regular cleaning: businesses and clinics -->
+<section class="section" aria-labelledby="business-heading">
   <div class="container">
-    <div class="row g-4 g-lg-5 align-items-center">
-      <div class="col-lg-6<%= flip ? ' order-lg-2' : '' %>">
-        <div class="photo ratio-4x3">
-          <%- include('/partials/picture', { name: service.image, alt: service.imageAlt, sizes: '(min-width: 992px) 50vw, 100vw', eager: i === 0 }) %>
-        </div>
-      </div>
+    <div class="row g-4 g-lg-5 mb-4 mb-lg-5 align-items-end">
       <div class="col-lg-6">
-        <h2 id="<%= service.slug %>-heading" class="mb-3"><%= service.title %></h2>
-        <p class="mb-4"><%= service.longText %></p>
-        <h3 class="h4 mb-2">What's included</h3>
-        <ul class="checklist">
-          <% service.includes.forEach(item => { %><li><%= item %></li><% }) %>
-        </ul>
-        <a class="btn btn-primary" href="/quote/?service=<%= service.slug %>">Get a quote for <%= shortTitle(service.title).toLowerCase() %></a>
+        <h2 id="business-heading" class="mb-3">Regular cleaning for businesses and clinics</h2>
+        <p class="mb-0 text-muted">Daily, weekly or whatever schedule suits you. We price it once you tell us the space and how often.</p>
       </div>
+    </div>
+    <div class="row g-4 g-lg-5">
+      <% by('business').forEach(s => { %>
+      <div class="col-lg-6 service-section" id="<%= s.slug %>">
+        <div class="photo ratio-3x2 mb-4">
+          <%- include('/partials/picture', { name: s.image, alt: s.imageAlt, sizes: '(min-width: 992px) 50vw, 100vw', eager: s.slug === 'commercial-cleaning' }) %>
+        </div>
+        <h3 class="h2 mb-1" style="font-size: 1.75rem;"><%= s.title %></h3>
+        <p class="label mb-3"><%= s.forWho %></p>
+        <p><%= s.longText %></p>
+        <h4 class="mt-4 mb-2">Each visit covers</h4>
+        <ul class="checklist mb-0">
+          <% s.includes.forEach(item => { %><li><%= item %></li><% }) %>
+        </ul>
+      </div>
+      <% }) %>
     </div>
   </div>
 </section>
-<% }) %>
 
-<section class="section pb-0">
+<!-- One-time cleans -->
+<section class="section section-paper" aria-labelledby="onetime-heading">
   <div class="container">
-    <div class="help-box">
-      <div>
-        <h2 class="h3 mb-2">Not sure what you need?</h2>
-        <p class="text-muted mb-md-0">Describe the space and what's bothering you. We'll suggest the right clean and send you a free quote.</p>
+    <h2 id="onetime-heading" class="mb-4 mb-lg-5">One-time cleans</h2>
+    <% by('one-time').forEach((s, i) => { %>
+    <div class="row g-4 g-lg-5 align-items-start service-section<%= i ? ' mt-4 pt-4 border-top' : '' %>" id="<%= s.slug %>">
+      <div class="col-lg-5<%= i % 2 ? ' order-lg-2' : '' %>">
+        <div class="photo ratio-4x3">
+          <%- include('/partials/picture', { name: s.image, alt: s.imageAlt, sizes: '(min-width: 992px) 42vw, 100vw' }) %>
+        </div>
       </div>
-      <a class="btn btn-dark btn-lg flex-shrink-0" href="/quote/">Ask us</a>
+      <div class="col-lg-7">
+        <h3 class="mb-1" style="font-size: 1.6rem;"><%= s.title %></h3>
+        <p class="label mb-3"><%= s.forWho %></p>
+        <p class="mb-3"><%= s.shortText %> <%= s.longText %></p>
+        <ul class="checklist two-col mb-0">
+          <% s.includes.forEach(item => { %><li><%= item %></li><% }) %>
+        </ul>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+</section>
+
+<!-- Floors and carpets: shorter, no photos -->
+<section class="section" aria-labelledby="floors-heading">
+  <div class="container">
+    <h2 id="floors-heading" class="mb-2">Floors and carpets</h2>
+    <p class="text-muted mb-4 mb-lg-5">Booked on their own, or added to a regular or one-time clean.</p>
+    <div class="row g-4 g-lg-5">
+      <% by('floors').forEach(s => { %>
+      <div class="col-md-6 service-section" id="<%= s.slug %>">
+        <div class="floor-box">
+          <h3 class="mb-1"><%= s.title %></h3>
+          <p class="text-muted mb-3"><%= s.forWho %>. <%= s.longText %></p>
+          <ul class="checklist mb-0">
+            <% s.includes.forEach(item => { %><li><%= item %></li><% }) %>
+          </ul>
+        </div>
+      </div>
+      <% }) %>
     </div>
   </div>
 </section>
