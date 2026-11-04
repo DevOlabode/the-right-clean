@@ -9,6 +9,9 @@ All images are **temporary**, pulled from the old Hostinger site (therightcleanc
 | `logo.jpg/.webp` | "TRC / The Right Clean" logo, square | **AI-generated** (ChatGPT, Apr 2026) on old site | Yes, with the original logo file (ideally SVG or transparent PNG). |
 | `logo-wide.jpg` | Same logo cropped tight, for the header/footer | Cropped from `logo.jpg` | Regenerate from the real logo file. |
 | `portrait-placeholder.jpg/.webp` | Woman in a white blazer ("confident-corporate-portrait") | Old About page. **Confirmed to be Gbemisola** (Nov 2026) | Optional, if a newer photo is sent. |
+| `og-image.jpg` | 1200×630 share image (logo, headline, cleaning photo on clouds) | Made by us from the images above | Regenerate when the real logo/photos arrive. |
+
+Favicons in `src/assets/icons/` are cropped from the "TRC" part of `logo.jpg`. Fonts in `src/assets/fonts/` are Inter and Plus Jakarta Sans (Google Fonts, SIL Open Font License).
 
 Not downloaded on purpose: reviewer avatars (`aleksandrina-andreeva`, `hannah-popowski`, `eliabe-costa`), which are stock photos attached to placeholder reviews.
 
