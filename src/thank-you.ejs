@@ -1,18 +1,23 @@
 ---
 layout: layouts/base.ejs
 title: Thank You
-description: "Thanks for your quote request."
+description: "Thanks for your quote request. The Right Clean will be in touch soon."
 permalink: /thank-you/
+noindex: true
+eleventyExcludeFromCollections: true
 ---
-<section class="page-header">
-  <div class="container">
-    <h1>Thank you</h1>
-    <p class="lead mb-0">We've got your request.</p>
-  </div>
-</section>
+<% const replyTodo = helpers.isTodo(site.replyTime); const replyText = String(site.replyTime).replace(/^TODO:\s*/i, ''); %>
 <section class="section">
-  <div class="container">
-    <p class="text-muted">Page content coming in Phase 3.</p>
+  <div class="container text-center" style="max-width: 38rem;">
+    <span class="icon-badge" aria-hidden="true"><i class="bi bi-check2-circle"></i></span>
+    <h1 class="h2">Thanks, we've got your request.</h1>
+    <p class="lead">We'll get back to you <%= replyText %>.<% if (replyTodo) { %> <%- include('/partials/todo', { label: 'Confirm reply time with the family' }) %><% } %></p>
+    <% if (!helpers.isTodo(site.phone)) { %>
+    <p class="text-muted">Need us sooner? <%= site.phoneCanText ? 'Call or text' : 'Call' %> <a href="<%= helpers.telHref(site.phone) %>"><%= site.phone %></a>.</p>
+    <% } %>
+    <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+      <a class="btn btn-primary" href="/">Back to Home</a>
+      <a class="btn btn-outline-primary" href="/services/">Our Services</a>
+    </div>
   </div>
 </section>
-

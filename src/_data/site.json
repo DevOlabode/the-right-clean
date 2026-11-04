@@ -7,6 +7,7 @@
   "emailConfirmed": true,
   "serviceArea": "Edmonton and surrounding areas",
   "hours": "Monday to Friday, 8:00 AM to 5:00 PM",
+  "replyTime": "TODO: within 1 business day",
   "owner": "Gbemisola Famade",
   "yearsExperience": 7,
   "insured": true,
@@ -18,15 +19,45 @@
   "url": "https://the-right-clean.vercel.app",
   "preview": true,
   "questions": [
-    { "question": "Phone number, and can it receive texts?", "answer": "Can receive texts: yes. Number not provided yet." },
-    { "question": "Which cities or areas do you serve?", "answer": "Edmonton and surrounding areas." },
-    { "question": "Business hours? Evenings and weekends?", "answer": "8:00 AM to 5:00 PM, Monday to Friday." },
-    { "question": "Are you insured? WCB coverage? Bonded?", "answer": "Yes." },
-    { "question": "Does info@rightclean.ca receive mail? Who should get quote requests?", "answer": "Yes. Quote requests go to info@rightclean.ca." },
-    { "question": "Logo file and brand colours?", "answer": "Use the current logo for now; real logo to follow." },
-    { "question": "Real photos of your work, team, uniforms, vehicle?", "answer": "Use the current photos for now; real photos to follow." },
-    { "question": "2–3 real reviews or a Google reviews link?", "answer": "No Google reviews yet." },
-    { "question": "Is the photo on your About page really Gbemisola?", "answer": "Yes." },
-    { "question": "Who has the Hostinger login for therightcleancanada.com?", "answer": "Samuel handles the domain." }
+    {
+      "question": "Phone number, and can it receive texts?",
+      "answer": "Can receive texts: yes. Number not provided yet."
+    },
+    {
+      "question": "Which cities or areas do you serve?",
+      "answer": "Edmonton and surrounding areas."
+    },
+    {
+      "question": "Business hours? Evenings and weekends?",
+      "answer": "8:00 AM to 5:00 PM, Monday to Friday."
+    },
+    {
+      "question": "Are you insured? WCB coverage? Bonded?",
+      "answer": "Yes."
+    },
+    {
+      "question": "Does info@rightclean.ca receive mail? Who should get quote requests?",
+      "answer": "Yes. Quote requests go to info@rightclean.ca."
+    },
+    {
+      "question": "Logo file and brand colours?",
+      "answer": "Use the current logo for now; real logo to follow."
+    },
+    {
+      "question": "Real photos of your work, team, uniforms, vehicle?",
+      "answer": "Use the current photos for now; real photos to follow."
+    },
+    {
+      "question": "2–3 real reviews or a Google reviews link?",
+      "answer": "No Google reviews yet."
+    },
+    {
+      "question": "Is the photo on your About page really Gbemisola?",
+      "answer": "Yes."
+    },
+    {
+      "question": "Who has the Hostinger login for therightcleancanada.com?",
+      "answer": "Samuel handles the domain."
+    }
   ]
 }
