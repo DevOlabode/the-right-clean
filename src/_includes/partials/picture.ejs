@@ -1,0 +1,8 @@
+<%#
+  WebP + JPG image. Required: name (file name without extension), alt.
+  Optional: width/height (aspect ratio hint, default 1200x900), cls, eager (above the fold).
+%>
+<picture>
+  <source srcset="/assets/images/<%= name %>.webp" type="image/webp">
+  <img src="/assets/images/<%= name %>.jpg" alt="<%= alt %>" width="<%= locals.width || 1200 %>" height="<%= locals.height || 900 %>"<% if (locals.cls) { %> class="<%= locals.cls %>"<% } %> <%- locals.eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"' %>>
+</picture>
