@@ -8,7 +8,7 @@ All images are **temporary**, pulled from the old Hostinger site (therightcleanc
 | `cleaner-wiping-table.jpg/.webp` | Gloved hands wiping a wooden table | **AI-generated** on old site | Yes, with a real photo of the team at work. Currently used for every service. |
 | `logo.jpg/.webp` | "TRC / The Right Clean" logo, square | **AI-generated** (ChatGPT, Apr 2026) on old site | Yes, with the original logo file (ideally SVG or transparent PNG). |
 | `logo-wide.jpg` | Same logo cropped tight, for the header/footer | Cropped from `logo.jpg` | Regenerate from the real logo file. |
-| `portrait-placeholder.jpg/.webp` | Woman in a white blazer ("confident-corporate-portrait") | Old About page, **likely stock or AI**, not confirmed to be Gbemisola | Yes. Don't label it as Gbemisola unless confirmed. |
+| `portrait-placeholder.jpg/.webp` | Woman in a white blazer ("confident-corporate-portrait") | Old About page. **Confirmed to be Gbemisola** (Nov 2026) | Optional, if a newer photo is sent. |
 
 Not downloaded on purpose: reviewer avatars (`aleksandrina-andreeva`, `hannah-popowski`, `eliabe-costa`), which are stock photos attached to placeholder reviews.
 

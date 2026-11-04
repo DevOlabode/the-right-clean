@@ -109,7 +109,7 @@ The current site also mentions routine and deep cleaning in its description.
 - Woman cleaning a table (AI-generated): https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=768,h=1045,fit=crop/JBkifMk3YfEMXD73/generated/generated-i2mpVikIWdU8UeP3.png
 - Logo (AI-generated, alt text currently says "BrightShine logo"): https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=375,fit=crop/JBkifMk3YfEMXD73/chatgpt-image-apr-29-2026-12_21_17-pm-ywPPukgKiqYHVuPv.png
 - Reviewer photos (stock, don't use for reviews): aleksandrina-andreeva…, hannah-popowski… on the same CDN
-- Owner portrait on the About page is named "confident-corporate-portrait"; it may be a stock photo, not Gbemisola. Don't label it as her until Samuel confirms.
+- Owner portrait on the About page ("confident-corporate-portrait", saved as `portrait-placeholder`) is confirmed to be Gbemisola (Nov 2026). OK to label it as her.
 - Other images on the About page (eliabe-costa…) can be pulled from https://therightcleancanada.com/cleaning-team if needed.
 
 Download images into `src/assets/images/` with descriptive names. Don't hot-link the old site.
