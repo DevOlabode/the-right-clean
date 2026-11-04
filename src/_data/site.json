@@ -7,6 +7,7 @@
   "emailConfirmed": true,
   "serviceArea": "Edmonton and surrounding areas",
   "hours": "Monday to Friday, 8:00 AM to 5:00 PM",
+  "openingHoursSchema": "Mo-Fr 08:00-17:00",
   "replyTime": "TODO: within 1 business day",
   "owner": "Gbemisola Famade",
   "yearsExperience": 7,

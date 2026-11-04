@@ -9,5 +9,27 @@ export default {
     const digits = String(phone).replace(/[^\d+]/g, "");
     return "tel:" + (/^\d{10}$/.test(digits) ? "+1" + digits : digits);
   },
+  // JSON-LD for the Home page. Only confirmed (non-TODO) fields are included.
+  localBusinessSchema(site, services = []) {
+    const known = (v) => !this.isTodo(v);
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": site.url + "/#business",
+      name: site.name,
+      slogan: site.tagline,
+      url: site.url + "/",
+      logo: site.url + "/assets/icons/icon-512.png",
+      image: site.url + "/assets/images/og-image.jpg",
+      founder: { "@type": "Person", name: site.owner },
+      sameAs: Object.values(site.socials || {}),
+      knowsAbout: services.map((s) => s.title),
+    };
+    if (known(site.phone)) schema.telephone = site.phone;
+    if (known(site.email) && site.emailConfirmed) schema.email = site.email;
+    if (known(site.serviceArea)) schema.areaServed = site.serviceArea;
+    if (known(site.openingHoursSchema)) schema.openingHours = site.openingHoursSchema;
+    return schema;
+  },
   year: new Date().getFullYear(),
 };
