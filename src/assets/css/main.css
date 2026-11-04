@@ -94,6 +94,9 @@ a:hover { color: var(--rc-accent-darker); }
 
 img { max-width: 100%; height: auto; }
 
+/* 16px side gutter on phones */
+.container { --bs-gutter-x: 2rem; }
+
 /* ---------- Focus ---------- */
 :focus-visible {
   outline: 3px solid var(--rc-accent-dark);
@@ -501,3 +504,49 @@ a.rc-card:hover { box-shadow: var(--rc-shadow-lg); transform: translateY(-3px); 
 .object-top img { object-position: top; }
 .text-accent { color: var(--rc-accent) !important; }          /* icons only */
 .text-primary-brand { color: var(--rc-primary) !important; }
+
+/* ================= Phase 3: quote form ================= */
+.req { color: #B42318; font-weight: 700; }   /* 6.5:1 on white */
+.form-label { font-weight: 600; color: var(--rc-primary); margin-bottom: 0.35rem; }
+.form-control, .form-select {
+  border-radius: 10px;
+  border-color: #B8C4CC;
+  padding: 0.7rem 0.9rem;
+  min-height: 48px;
+}
+.form-control:focus, .form-select:focus,
+.form-check-input:focus {
+  border-color: var(--rc-accent-dark);
+  box-shadow: 0 0 0 4px var(--bs-focus-ring-color);
+}
+.form-check-input { width: 1.25rem; height: 1.25rem; margin-top: 0.15rem; border-color: #8A99A4; }
+.form-check-input:checked { background-color: var(--rc-accent-dark); border-color: var(--rc-accent-dark); }
+.form-check-label { padding-left: 0.4rem; }
+.form-text { color: var(--rc-muted); }
+.invalid-feedback { color: #B42318; font-weight: 500; }
+.was-validated .form-control:invalid, .was-validated .form-select:invalid,
+.form-control.is-invalid, .form-select.is-invalid { border-color: #B42318; }
+.was-validated .form-check-input:invalid { border-color: #B42318; }
+.was-validated .form-check-input:invalid ~ .form-check-label { color: inherit; }
+.was-validated .form-check-input:valid ~ .form-check-label { color: inherit; }
+.was-validated .form-control:valid, .was-validated .form-select:valid { border-color: #B8C4CC; background-image: none; padding-right: 0.9rem; }
+.form-error-summary {
+  border-left: 4px solid #B42318;
+  background: #FEF3F2;
+  color: #7A271A;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+.submit-btn { width: 100%; }
+@media (min-width: 768px) { .submit-btn { width: auto; } }
+.submit-btn[disabled] { opacity: 0.75; cursor: progress; }
+
+.contact-card { height: auto; }
+.contact-list { list-style: none; padding: 0; margin: 0 0 1rem; }
+.contact-list li { display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 1.25rem; }
+.contact-list .icon-badge { margin-bottom: 0; flex-shrink: 0; width: 2.75rem; height: 2.75rem; font-size: 1.2rem; }
+.contact-label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--rc-muted); }
+.contact-list a { font-weight: 600; word-break: break-word; }
+@media (min-width: 992px) { .contact-card { position: sticky; top: calc(var(--rc-header-h) + 24px); } }
