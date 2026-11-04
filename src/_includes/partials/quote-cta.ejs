@@ -1,23 +1,32 @@
-<% const ctaTel = helpers.telHref(site.phone); %>
-<section class="section on-dark cta-band" aria-labelledby="quote-cta-heading">
-  <%- include('/partials/star', { cls: 'bg-star' }) %>
-  <div class="container position-relative">
-    <div class="row g-4 g-lg-5 align-items-end">
-      <div class="col-lg-7 reveal">
-        <span class="kicker"><%- include('/partials/star') %>Free, no-obligation quotes</span>
-        <h2 id="quote-cta-heading" class="display mb-4">Ready for <em>The Right Clean?</em></h2>
-        <p class="lead mw-34 mb-4">Tell us about your space and we'll get back to you with a clear quote that fits it.</p>
+<%# Light "get a quote + hours" block. Kept light on purpose so the footer is the only dark block. %>
+<% const ctaTel = helpers.telHref(site.phone); const week = helpers.weekHours(site.openingHoursSchema); %>
+<section class="section section-mist" aria-labelledby="quote-cta-heading">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-6">
+        <h2 id="quote-cta-heading" class="mb-3">Get a free quote</h2>
+        <p class="lead mb-4">Tell us about your space and we'll send you a clear price for it. No cost and no obligation.</p>
         <div class="d-flex flex-wrap gap-2">
-          <a class="btn btn-light btn-lg" href="/quote/">Get a Free Quote <%- helpers.icon('arrow-right') %></a>
-          <% if (ctaTel) { %><a class="btn btn-outline-light btn-lg" href="<%= ctaTel %>"><%- helpers.icon('telephone') %> <%= site.phone %></a><% } %>
+          <a class="btn btn-primary btn-lg" href="/quote/">Request a quote <%- helpers.icon('arrow-right') %></a>
+          <% if (ctaTel) { %><a class="btn btn-outline-dark btn-lg" href="<%= ctaTel %>"><%- helpers.icon('telephone') %> <%= site.phoneCanText ? 'Call or text' : 'Call' %> <%= site.phone %></a><% } %>
         </div>
       </div>
-      <div class="col-lg-5 reveal reveal-delay-1">
-        <ul class="cta-details">
-          <li><span class="label">Area</span><span class="value"><% if (helpers.isTodo(site.serviceArea)) { %><%- include('/partials/todo', { label: 'Add service area' }) %><% } else { %><%= site.serviceArea %><% } %></span></li>
-          <li><span class="label">Hours</span><span class="value"><% if (helpers.isTodo(site.hours)) { %><%- include('/partials/todo', { label: 'Add business hours' }) %><% } else { %><%= site.hours %><% } %></span></li>
-          <li><span class="label">Email</span><span class="value"><a href="mailto:<%= site.email %>"><%= site.email %></a></span></li>
-        </ul>
+      <div class="col-lg-5 offset-lg-1">
+        <div class="visit-card">
+          <dl class="mb-3">
+            <dt>Service area</dt>
+            <dd><% if (helpers.isTodo(site.serviceArea)) { %><%- include('/partials/todo', { label: 'Add service area' }) %><% } else { %><%= site.serviceArea %><% } %></dd>
+          </dl>
+          <p class="label mb-1 mt-3">Hours</p>
+          <% if (helpers.isTodo(site.openingHoursSchema)) { %><%- include('/partials/todo', { label: 'Add business hours' }) %><% } else { %>
+          <table class="hours-table" data-hours-table>
+            <caption class="visually-hidden">Business hours</caption>
+            <tbody>
+              <% week.forEach(d => { %><tr data-day="<%= d.key %>"><th scope="row"><%= d.day %></th><td><%= d.label %></td></tr><% }) %>
+            </tbody>
+          </table>
+          <% } %>
+        </div>
       </div>
     </div>
   </div>

@@ -5,26 +5,17 @@ description: "Commercial, move-in/move-out, post construction, floor care, carpe
 permalink: /services/
 ---
 <% const shortTitle = (t) => t.replace(/\s*\(.*\)$/, ''); %>
-<section class="page-hero">
+<section class="page-head">
   <div class="container">
-    <div class="row g-4 align-items-end">
-      <div class="col-lg-7">
-        <span class="kicker"><%- include('/partials/star') %>Services</span>
-        <h1 class="mb-0">Cleaning tailored to <em>your space</em></h1>
-      </div>
-      <div class="col-lg-5">
-        <p class="lead mb-0">From offices and clinics to new builds and moves. Routine or deep cleaning, on a schedule that suits you.</p>
-      </div>
-    </div>
+    <h1 class="mb-3">Services</h1>
+    <p class="lead">Six kinds of cleaning, each with its own checklist. Routine or deep cleaning, booked around your schedule. Every quote is free.</p>
   </div>
 </section>
 
 <nav class="service-nav" aria-label="Jump to a service">
   <div class="container">
     <ul>
-      <% services.forEach(service => { %>
-      <li><a href="#<%= service.slug %>"><%= shortTitle(service.title) %></a></li>
-      <% }) %>
+      <% services.forEach(service => { %><li><a href="#<%= service.slug %>"><%= shortTitle(service.title) %></a></li><% }) %>
     </ul>
   </div>
 </nav>
@@ -34,22 +25,19 @@ permalink: /services/
 <section class="section service-section<%= flip ? ' section-paper' : '' %>" id="<%= service.slug %>" aria-labelledby="<%= service.slug %>-heading">
   <div class="container">
     <div class="row g-4 g-lg-5 align-items-center">
-      <div class="col-lg-6<%= flip ? ' order-lg-2' : '' %> reveal">
-        <div class="frame ratio-4x3">
+      <div class="col-lg-6<%= flip ? ' order-lg-2' : '' %>">
+        <div class="photo ratio-4x3">
           <%- include('/partials/picture', { name: service.image, alt: service.imageAlt, sizes: '(min-width: 992px) 50vw, 100vw', eager: i === 0 }) %>
         </div>
       </div>
-      <div class="col-lg-6 reveal reveal-delay-1">
-        <div class="<%= flip ? 'pe-lg-4' : 'ps-lg-4' %>">
-          <span class="service-index">0<%= i + 1 %> / 0<%= services.length %></span>
-          <h2 id="<%= service.slug %>-heading" class="mb-4"><%= service.title %></h2>
-          <p class="mb-4"><%= service.longText %></p>
-          <h3 class="h4 mb-3">What's included</h3>
-          <ul class="checklist">
-            <% service.includes.forEach(item => { %><li><%= item %></li><% }) %>
-          </ul>
-          <a class="btn btn-primary" href="/quote/?service=<%= service.slug %>">Get a quote for <%= shortTitle(service.title) %> <%- helpers.icon('arrow-right') %></a>
-        </div>
+      <div class="col-lg-6">
+        <h2 id="<%= service.slug %>-heading" class="mb-3"><%= service.title %></h2>
+        <p class="mb-4"><%= service.longText %></p>
+        <h3 class="h4 mb-2">What's included</h3>
+        <ul class="checklist">
+          <% service.includes.forEach(item => { %><li><%= item %></li><% }) %>
+        </ul>
+        <a class="btn btn-primary" href="/quote/?service=<%= service.slug %>">Get a quote for <%= shortTitle(service.title).toLowerCase() %></a>
       </div>
     </div>
   </div>
@@ -58,11 +46,12 @@ permalink: /services/
 
 <section class="section pb-0">
   <div class="container">
-    <div class="help-box reveal">
-      <span class="kicker"><%- include('/partials/star') %>Not sure what you need?</span>
-      <h2 class="mb-3">Tell us about the space. <em>We'll suggest the right clean.</em></h2>
-      <p class="text-muted mx-auto mb-4" style="max-width: 36rem;">Describe the space and what's bothering you, and we'll send back a free quote with the right service.</p>
-      <a class="btn btn-dark btn-lg" href="/quote/">Ask us for a quote <%- helpers.icon('arrow-right') %></a>
+    <div class="help-box">
+      <div>
+        <h2 class="h3 mb-2">Not sure what you need?</h2>
+        <p class="text-muted mb-md-0">Describe the space and what's bothering you. We'll suggest the right clean and send you a free quote.</p>
+      </div>
+      <a class="btn btn-dark btn-lg flex-shrink-0" href="/quote/">Ask us</a>
     </div>
   </div>
 </section>

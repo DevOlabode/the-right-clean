@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.ejs
-title: Get a Free Quote
+title: Get a free quote
 description: "Request a free, no-obligation cleaning quote from The Right Clean in Edmonton. Tell us about your space and we'll get back to you."
 permalink: /quote/
 ---
@@ -10,30 +10,24 @@ permalink: /quote/
   const heardAbout = ['Google search', 'Facebook', 'Instagram', 'Friend or family', 'Other'];
   const req = '<span class="req" aria-hidden="true">*</span>';
 %>
-<section class="page-hero pb-5">
+<section class="page-head">
   <div class="container">
-    <div class="row g-4 align-items-end">
-      <div class="col-lg-7">
-        <span class="kicker"><%- include('/partials/star') %>Free quote</span>
-        <h1 class="mb-0">Let's get your space <em>sparkling.</em></h1>
-      </div>
-      <div class="col-lg-5">
-        <p class="lead mb-0">Tell us about your space and we'll get back to you with a free, no-obligation quote.</p>
-      </div>
-    </div>
+    <h1 class="mb-3">Get a free quote</h1>
+    <p class="lead">Tell us about your space and we'll get back to you with a clear price. No cost and no obligation.</p>
   </div>
 </section>
 
-<section class="section section-paper pt-0">
+<section class="section section-paper">
   <div class="container">
     <div class="quote-shell">
       <!-- Form -->
       <div class="quote-main">
-          <h2 class="h3 mb-1">Request your quote</h2>
+          <h2 class="h3 mb-1">Your details</h2>
           <p class="text-muted small mb-4">Fields marked <span class="req">*</span> are required.</p>
 
-          <form id="quote-form" class="quote-form" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="<%= site.web3formsKey %>">
+          <%# Demo mode: with no Web3Forms key yet, JS validates and goes to /thank-you/ without sending anything. %>
+          <form id="quote-form" class="quote-form" action="https://api.web3forms.com/submit" method="POST"<%- helpers.isTodo(site.web3formsKey) ? ' data-demo="true"' : '' %>>
+            <% if (!helpers.isTodo(site.web3formsKey)) { %><input type="hidden" name="access_key" value="<%= site.web3formsKey %>"><% } %>
             <input type="hidden" name="subject" value="New quote request — <%= site.name %>">
             <input type="hidden" name="from_name" value="<%= site.name %> website">
             <input type="hidden" name="redirect" value="<%= site.url %>/thank-you/">
@@ -117,7 +111,6 @@ permalink: /quote/
               </div>
 
               <div class="col-12">
-                <% if (helpers.isTodo(site.web3formsKey)) { %><p><%- include('/partials/todo', { label: 'Add Web3Forms key to site.json — form will not send yet' }) %></p><% } %>
                 <button type="submit" class="btn btn-primary btn-lg submit-btn">
                   <span class="btn-label">Send my quote request</span> <%- helpers.icon('arrow-right') %>
                 </button>
@@ -127,10 +120,9 @@ permalink: /quote/
       </div>
 
       <!-- Contact panel -->
-      <aside class="quote-aside on-dark" aria-labelledby="contact-heading">
-          <span class="kicker"><%- include('/partials/star') %>Prefer to talk?</span>
-          <h2 id="contact-heading" class="h3 mb-3">We're happy to <em>help.</em></h2>
-          <p class="mb-0">Reach us directly with any question about your space.</p>
+      <aside class="quote-aside" aria-labelledby="contact-heading">
+          <h2 id="contact-heading" class="h3 mb-2">Prefer to talk?</h2>
+          <p class="text-muted mb-0">Call or text with any question about your space.</p>
           <ul class="contact-list">
             <li>
               <div>
@@ -159,8 +151,8 @@ permalink: /quote/
             </li>
           </ul>
           <div class="d-flex gap-2 mt-2">
-            <a class="btn btn-outline-light btn-sm" href="<%= site.socials.facebook %>" target="_blank" rel="noopener"><%- helpers.icon('facebook', 'me-1') %>Facebook<span class="visually-hidden"> (opens in new tab)</span></a>
-            <a class="btn btn-outline-light btn-sm" href="<%= site.socials.instagram %>" target="_blank" rel="noopener"><%- helpers.icon('instagram', 'me-1') %>Instagram<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-outline-dark btn-sm" href="<%= site.socials.facebook %>" target="_blank" rel="noopener"><%- helpers.icon('facebook', 'me-1') %>Facebook<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-outline-dark btn-sm" href="<%= site.socials.instagram %>" target="_blank" rel="noopener"><%- helpers.icon('instagram', 'me-1') %>Instagram<span class="visually-hidden"> (opens in new tab)</span></a>
           </div>
       </aside>
     </div>

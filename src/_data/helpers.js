@@ -43,5 +43,21 @@ export default {
     }
     return iconCache.get(name).replace("<svg", `<svg class="bi bi-${name}${extraClass ? " " + extraClass : ""}" aria-hidden="true" focusable="false"`);
   },
+  // Weekly hours from a schema.org string like "Mo-Fr 08:00-17:00; Sa 09:00-12:00".
+  // Days not listed are closed. Returns 7 rows, Monday first.
+  weekHours(spec) {
+    const keys = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+    const names = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const fmt = (t) => { let [h, m] = t.split(":").map(Number); const ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12; return `${h}:${String(m).padStart(2, "0")} ${ap}`; };
+    const rows = names.map((name, i) => ({ day: name, key: keys[i], open: null, close: null, label: "Closed" }));
+    if (this.isTodo(spec)) return rows;
+    for (const part of String(spec).split(";")) {
+      const m = part.trim().match(/^([A-Z][a-z])(?:-([A-Z][a-z]))?\s+(\d{2}:\d{2})-(\d{2}:\d{2})$/);
+      if (!m) continue;
+      const from = keys.indexOf(m[1]), to = keys.indexOf(m[2] || m[1]);
+      for (let i = from; i <= to; i++) Object.assign(rows[i], { open: m[3], close: m[4], label: `${fmt(m[3])} – ${fmt(m[4])}` });
+    }
+    return rows;
+  },
   year: new Date().getFullYear(),
 };

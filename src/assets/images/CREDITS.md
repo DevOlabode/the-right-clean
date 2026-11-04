@@ -30,4 +30,5 @@ They show other people, not The Right Clean's team. Replace them with real photo
 
 - `og-image.jpg`: 1200×630 share image (logo, headline, hero photo). Regenerate when the real logo/photos arrive.
 - `src/assets/icons/`: favicons cropped from the "TRC" part of `logo.jpg`.
-- `src/assets/fonts/`: Instrument Serif and Manrope (Google Fonts, SIL Open Font License).
+- `portrait-avatar.jpg`: small crop of Gbemisola's portrait for the owner note.
+- `src/assets/fonts/`: Schibsted Grotesk (Google Fonts, SIL Open Font License).

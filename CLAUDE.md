@@ -68,24 +68,20 @@ vercel.json
 9. **Keep it simple.** No extra libraries unless a phase file asks for one. Ask Samuel before adding a dependency.
 10. **Commit after each finished task** with a clear message.
 
-## Design system (premium redesign, Nov 2026)
+## Design system (practical redesign, Nov 2026)
 
-- **Feel:** premium, editorial, calm and trustworthy. Big serif headlines, real photography, generous white space. Avoid "template" tells: no icon-in-tinted-square card grids, no centered heading + 3 cards repeated, no gradient CTA boxes.
-- **Colours (CSS variables in `:root` of `main.css`, taken from the logo):**
-  - `--rc-ink: #0B1B33` (deep navy: headings, dark sections, footer, top bar)
-  - `--rc-blue: #1E4FD8` (royal blue: buttons with white text, links, italic accents; 6.6:1 on white)
-  - `--rc-blue-dark: #1740B3` (hover)
-  - `--rc-sky: #8FB3FF` (small accents on dark backgrounds only)
-  - `--rc-paper: #F6F4EF` (warm off-white section background), `--rc-mist: #E9EFFA` (pale blue tint)
-  - `--rc-text: #1A2233`, `--rc-muted: #56627A`
-- **Fonts (self-hosted woff2 in `src/assets/fonts/`, preloaded):** "Instrument Serif" (regular + italic) for headings and display text; "Manrope" (400–700) for body and UI. Emphasis words in headings use `<em>` (italic, blue).
-- **Motif:** the four-point sparkle from the logo (`partials/star.ejs`) for labels, checklists and decoration.
-- **Components:** pill buttons with arrow icons, 28px image frames, photo service cards with dark gradient, dark split sections, numbered steps/values with serif numerals, `.kicker` labels (sparkle + small caps), scroll reveal (`.reveal`, respects reduced motion, content visible without JS).
+Match Samuel's other demo sites: each business gets its own personality, and the site is full of concrete, useful content rather than decoration.
+
+- **Feel:** crisp, practical, trustworthy. Plain direct headings ("What we clean", "What's included", "Before you ask"). No template tells: no italic accent words in headings, no small labels above every heading, no tickers, floating badges, scroll fade-ins or stacked dark slogan blocks. The footer is the only dark block.
+- **Colours (`:root` in `main.css`, from the logo):** `--rc-ink #0B1B33` (headings, footer, info strip), `--rc-blue #1E4FD8` (buttons, links; 6.6:1 on white), `--rc-blue-dark #1740B3` (hover), `--rc-mist #EDF2FB` and `--rc-paper #F7F7F4` (section backgrounds), `--rc-text #1A2233`, `--rc-muted #556079`, `--rc-line #DDE2EA`.
+- **Font:** "Schibsted Grotesk" (variable 400–800), self-hosted in `src/assets/fonts/`, preloaded. One family for everything.
+- **Components:** 8px-radius buttons, 10px photos, bordered photo service cards, "What's included" tabs (checklists from `services.json`), info strip with live open/closed status, hours table with today highlighted (both from `site.openingHoursSchema` via `helpers.weekHours`), owner note card, numbered steps, "Before you ask" FAQ (confirmed facts only), light quote + hours block.
 - **Icons:** Bootstrap Icons SVGs inlined at build time with `helpers.icon('name')`. No icon font.
-- **Images:** `partials/picture.ejs` serves WebP + JPG; stock photos have an `-800` version and are used with `sizes`. Stock photos are temporary (see `src/assets/images/CREDITS.md`).
-- **Header:** dark top bar (area, hours, call/text), then logo, links (Home, Services, About, Contact) and "Get a Free Quote" button. Sticky. Collapses to a hamburger with large serif links on mobile.
-- **Mobile sticky bottom bar** (under 768px): "Call" (`tel:` link) and "Get a Quote". Hide "Call" if the phone number is still a TODO.
-- **Phones:** keep row gutters at `g-4` below 992px (`g-4 g-lg-5`); `g-5` causes horizontal scroll.
+- **Images:** `partials/picture.ejs` (WebP + JPG; stock photos have `-800` versions, pass `sizes`). Stock photos are temporary, see `src/assets/images/CREDITS.md`.
+- **Header:** logo, links (Home, Services, About, Contact), "Call or text" link and "Get a free quote" button. Sticky. Hamburger on mobile.
+- **Mobile sticky bottom bar** (under 768px): "Call" and "Get a quote". Hide "Call" if the phone is TODO.
+- **Phones:** use `g-4 g-lg-5` row gutters; plain `g-5` causes horizontal scroll.
+- **Quote form demo mode:** while `web3formsKey` is TODO the form validates and goes to /thank-you/ without sending anything, and shows no warning.
 
 ## Content inventory (from the current site, Nov 2026)
 

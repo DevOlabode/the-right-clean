@@ -39,9 +39,7 @@
 <!-- Fonts and styles -->
 <% if (locals.preloadImage && locals.preloadSizes) { %><link rel="preload" as="image" type="image/webp" imagesrcset="/assets/images/<%= preloadImage %>-800.webp 800w, /assets/images/<%= preloadImage %>.webp <%= locals.preloadWidth || 1400 %>w" imagesizes="<%= preloadSizes %>" fetchpriority="high">
 <% } else if (locals.preloadImage) { %><link rel="preload" as="image" href="/assets/images/<%= preloadImage %>.webp" type="image/webp" fetchpriority="high"><% } %>
-<link rel="preload" href="/assets/fonts/instrument-serif-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/instrument-serif-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/vendor/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="/assets/css/main.css">
 <% if (page.url === '/') { %><script type="application/ld+json"><%- JSON.stringify(helpers.localBusinessSchema(site, services)).replace(/</g, '\\u003c') %></script><% } %>

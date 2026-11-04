@@ -1,9 +1,8 @@
 <a class="service-card" href="/services/#<%= service.slug %>">
-  <div class="frame-img"><%- include('/partials/picture', { name: service.image, alt: '', sizes: '(min-width: 992px) 33vw, (min-width: 768px) 50vw, 85vw' }) %></div>
-  <span class="go" aria-hidden="true"><%- helpers.icon('arrow-up-right') %></span>
+  <div class="photo"><%- include('/partials/picture', { name: service.image, alt: '', sizes: '(min-width: 992px) 33vw, (min-width: 768px) 50vw, 100vw' }) %></div>
   <div class="service-card-body">
-    <span class="service-num"><%= String(index + 1).padStart(2, '0') %></span>
-    <h3><%= service.title.replace(/\s*\(.*\)$/, '') %></h3>
+    <h3><%= service.title %></h3>
     <p><%= service.shortText %></p>
+    <span class="link-more">What's included <%- helpers.icon('arrow-right') %></span>
   </div>
 </a>

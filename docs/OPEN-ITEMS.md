@@ -6,7 +6,7 @@ Everything still missing or unconfirmed before launch. Updated at the end of Pha
 
 | # | What's missing | Where it shows | How to fix |
 |---|---|---|---|
-| 1 | **Web3Forms access key** | Quote page: yellow box above the submit button. The form won't send until this is set. | Create a key at web3forms.com with the inbox that should receive quotes (info@rightclean.ca), put it in `site.json` → `web3formsKey`. |
+| 1 | **Web3Forms access key** | Nothing visible: without a key the form runs in demo mode (validates, then shows /thank-you/, sends nothing). | Create a key at web3forms.com with the inbox that should receive quotes (info@rightclean.ca), put it in `site.json` → `web3formsKey`. |
 | 2 | **Reply time** ("within 1 business day") | Thank-you page: yellow box after the sentence | Confirm with the family. In `site.json` → `replyTime`, remove the `TODO: ` prefix (or change the wording). |
 | 3 | **Privacy policy review** | Privacy page: yellow "Template — have the business review before launch" box | Family reads the policy. Then delete the note in `src/privacy.ejs` (line marked `TODO`). |
 | 4 | **Test quote submission** | — | After #1, submit a real test and confirm it arrives with all fields and lands on /thank-you/. |
@@ -19,7 +19,8 @@ Everything still missing or unconfirmed before launch. Updated at the end of Pha
 | 6 | Service descriptions (`longText`) were written by us from the old site's one-liners | `src/_data/services.json` (Services page) |
 | 7 | "…and, above all, a lover of God" kept from Gbemisola's old About text | `src/about.ejs` |
 | 8 | Insured badge shows. The answer "YES" covered insured / WCB / bonded together; WCB and bonded aren't mentioned on the site | `site.json` → `insured` |
-| 9 | Opening hours for Google are set as `Mo-Fr 08:00-17:00` | `site.json` → `openingHoursSchema` (keep in sync with `hours`) |
+| 9 | Opening hours are set as `Mo-Fr 08:00-17:00`, so Saturday and Sunday show as **Closed** in the hours table and open/closed status. Confirm weekends are really closed (and whether evening work is offered) | `site.json` → `openingHoursSchema` (keep in sync with `hours`) |
+| 9a | Home page copy written by us: "How it works" steps and "Before you ask" answers (prices quoted per space, area, hours, insured) | `src/index.ejs` |
 
 ## Images and branding (temporary)
 

@@ -9,103 +9,69 @@ preloadImage: portrait-placeholder
   const firstName = site.owner.split(' ')[0];
   const teamPoints = ['Trained', 'Quality-checked'];
   if (site.insured === true) teamPoints.splice(1, 0, 'Insured');
-  const specialties = ['Deep cleaning', 'Office cleaning', 'Floor care'];
   const values = [
     { title: 'Teamwork', text: 'We work together on every job, so nothing gets missed and the work gets done well.' },
     { title: 'Reliability', text: 'We show up when we say we will and clean to the same standard every time.' },
     { title: 'Attention to detail', text: 'The small things matter. We notice them, so you can see the difference.' },
   ];
 %>
-<section class="page-hero">
+<section class="page-head">
   <div class="container">
-    <div class="row g-4 g-lg-5 align-items-center">
-      <div class="col-lg-6 order-2 order-lg-1">
-        <span class="kicker"><%- include('/partials/star') %>About us</span>
-        <h1 class="mb-4">Cleaning built on <em>trust.</em></h1>
-        <p class="lead mb-4">The Right Clean is led by <%= site.owner %>, who has spent more than <%= site.yearsExperience %> years in the cleaning industry. Our focus is simple: trust, consistent quality and peace of mind.</p>
-        <div class="d-flex flex-wrap gap-2">
-          <% teamPoints.forEach(p => { %><span class="badge-pill"><%- include('/partials/star') %><%= p %></span><% }) %>
-        </div>
-      </div>
-      <div class="col-lg-5 offset-lg-1 order-1 order-lg-2">
-        <figure class="mb-0">
-          <div class="frame ratio-4x5 object-top">
-            <%- include('/partials/picture', { name: 'portrait-placeholder', alt: `${site.owner}, owner of ${site.name}`, width: 1024, height: 1536, eager: true }) %>
-          </div>
-          <figcaption class="mt-3 small text-muted"><strong class="text-ink"><%= site.owner %></strong> · Owner, <%= site.name %></figcaption>
-        </figure>
-      </div>
-    </div>
+    <h1 class="mb-3">About The Right Clean</h1>
+    <p class="lead">A cleaning company built on trust, consistent quality and peace of mind.</p>
   </div>
 </section>
 
-<!-- Story -->
 <section class="section" aria-labelledby="story-heading">
   <div class="container">
     <div class="row g-4 g-lg-5">
-      <div class="col-lg-5 reveal">
-        <h2 id="story-heading" class="kicker"><%- include('/partials/star') %>Our story</h2>
-        <p class="pull-quote">"Clients want more than a clean space. They want <em>peace of mind.</em>"</p>
+      <div class="col-md-5 col-lg-4">
+        <figure class="mb-0">
+          <div class="photo ratio-4x5 object-top">
+            <%- include('/partials/picture', { name: 'portrait-placeholder', alt: `${site.owner}, owner of ${site.name}`, width: 1024, height: 1536, eager: true }) %>
+          </div>
+          <figcaption class="mt-2 small text-muted"><strong class="text-ink"><%= site.owner %></strong>, owner</figcaption>
+        </figure>
       </div>
-      <div class="col-lg-6 offset-lg-1 reveal reveal-delay-1">
-        <p class="lead text-ink">Hello, I'm <%= firstName %>, the proud owner of <%= site.name %> and, above all, a lover of God.</p>
+      <div class="col-md-7 col-lg-7 offset-lg-1">
+        <h2 id="story-heading" class="mb-4">Hello, I'm <%= firstName %>.</h2>
+        <p class="lead text-ink">I'm the proud owner of <%= site.name %> and, above all, a lover of God.</p>
         <p>I've worked in the cleaning industry for more than <%= site.yearsExperience %> years. It started with hands-on work cleaning homes, offices and commercial spaces, and it taught me one thing: quality should be visible, and consistency should never be compromised.</p>
-        <p>Along the way I learned that clients want to know their space is in good hands. That idea shapes how we clean, the standards we set and how we treat every client.</p>
-        <p>Our promise, <strong>"<%= site.tagline %>"</strong>, is more than a tagline. It's the standard we hold ourselves to on every job, in every space.</p>
-        <p class="mb-0">Thank you to every client who has trusted us. Your support and feedback help us keep raising the bar.</p>
-        <div class="signature">
-          <span class="line" aria-hidden="true"></span>
-          <div><strong><%= site.owner %></strong><span>Owner, <%= site.name %></span></div>
+        <p>Along the way I learned that clients want more than a clean space. They want peace of mind, and to know their space is in good hands. That idea shapes how we clean, the standards we set and how we treat every client.</p>
+        <p>Our promise, "<%= site.tagline %>", is the standard we hold ourselves to on every job.</p>
+        <p class="mb-0">Thank you to every client who has trusted us. Your support and feedback help us keep getting better.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-paper" aria-labelledby="team-heading">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-6">
+        <h2 id="team-heading" class="mb-3">The team</h2>
+        <p>Our cleaners are <%= teamPoints.join(', ').toLowerCase().replace(/, ([^,]*)$/, ' and $1') %>. Every team member gets proper training and regular quality checks, so you get the same thorough results on every visit.</p>
+        <p class="mb-3">We have specialists in deep cleaning, office cleaning and floor care, and the right tools and products for each job.</p>
+        <div class="d-flex flex-wrap gap-2">
+          <% teamPoints.forEach(p => { %><span class="tag"><%- helpers.icon('check-lg') %><%= p %></span><% }) %>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="photo ratio-4x3">
+          <%- include('/partials/picture', { name: 'office-corridor', alt: 'A spotless, bright office corridor with glass walls', sizes: '(min-width: 992px) 50vw, 100vw' }) %>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Team -->
-<section class="split on-dark" aria-labelledby="team-heading">
-  <div class="split-media">
-    <%- include('/partials/picture', { name: 'office-corridor', alt: 'A spotless, bright office corridor with glass walls', sizes: '(min-width: 992px) 50vw, 100vw' }) %>
-  </div>
-  <div class="split-body">
-    <div class="reveal">
-      <span class="kicker"><%- include('/partials/star') %>Our team</span>
-      <h2 id="team-heading" class="mb-4">People you can trust <em>in your space.</em></h2>
-      <p class="lead mb-4">Our cleaners are <%= teamPoints.join(', ').toLowerCase().replace(/, ([^,]*)$/, ' and $1') %>. Every team member gets proper training and regular quality checks, so you get the same thorough results on every visit.</p>
-      <p class="mb-3">We have specialists for the jobs that need extra skill:</p>
-      <ul class="checklist mb-0">
-        <% specialties.forEach(s => { %><li><%= s %></li><% }) %>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Values -->
 <section class="section" aria-labelledby="values-heading">
   <div class="container">
-    <div class="row g-4 g-lg-5">
-      <div class="col-lg-4 reveal">
-        <span class="kicker"><%- include('/partials/star') %>Our values</span>
-        <h2 id="values-heading">What we <em>stand for</em></h2>
-      </div>
-      <div class="col-lg-8 reveal reveal-delay-1">
-        <% values.forEach((v, i) => { %>
-        <div class="value-row">
-          <span class="num">0<%= i + 1 %></span>
-          <h3><%= v.title %></h3>
-          <p><%= v.text %></p>
-        </div>
-        <% }) %>
-      </div>
+    <h2 id="values-heading" class="mb-4 mb-lg-5">What we care about</h2>
+    <div class="values">
+      <% values.forEach(v => { %><div><h3><%= v.title %></h3><p><%= v.text %></p></div><% }) %>
     </div>
-  </div>
-</section>
-
-<!-- Closing -->
-<section class="section section-paper text-center" aria-label="Our promise">
-  <div class="container reveal">
-    <p class="statement mx-auto mb-4" style="max-width: 52rem;">"Cleaning isn't just about the space we leave behind. It's about the <em>confidence, comfort and peace of mind</em> we create."</p>
-    <p class="text-muted mb-0">— <%= site.owner %></p>
+    <p class="lead text-ink mt-5 mb-0" style="max-width: 44rem;">"Cleaning isn't just about the space we leave behind. It's about the confidence, comfort and peace of mind we create." <span class="text-muted">— <%= firstName %></span></p>
   </div>
 </section>
 
