@@ -182,6 +182,11 @@ a:hover { color: var(--rc-blue-dark); }
   --bs-btn-disabled-bg: var(--rc-blue); --bs-btn-disabled-border-color: var(--rc-blue);
   box-shadow: 0 8px 20px -8px rgba(30, 79, 216, 0.6);
 }
+.btn-dark {
+  --bs-btn-color: #fff; --bs-btn-bg: var(--rc-ink); --bs-btn-border-color: var(--rc-ink);
+  --bs-btn-hover-color: #fff; --bs-btn-hover-bg: #000; --bs-btn-hover-border-color: #000;
+  --bs-btn-active-color: #fff; --bs-btn-active-bg: #000; --bs-btn-active-border-color: #000;
+}
 .btn-outline-primary, .btn-outline-dark {
   --bs-btn-color: var(--rc-ink); --bs-btn-border-color: rgba(var(--rc-ink-rgb), 0.25); --bs-btn-bg: transparent;
   --bs-btn-hover-color: #fff; --bs-btn-hover-bg: var(--rc-ink); --bs-btn-hover-border-color: var(--rc-ink);
