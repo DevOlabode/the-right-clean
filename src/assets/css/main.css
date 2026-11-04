@@ -482,7 +482,7 @@ a.rc-card:hover { box-shadow: var(--rc-shadow-lg); transform: translateY(-3px); 
   font-size: clamp(1.75rem, 1.2rem + 2.5vw, 2.75rem);
   color: var(--rc-primary);
 }
-.closing-line span { color: var(--rc-accent-dark); }
+.closing-line span { color: var(--rc-accent-dark); white-space: nowrap; }
 
 /* Privacy / long text */
 .prose { max-width: 46rem; }
